@@ -26,12 +26,20 @@ An image is an inert, immutable, file that's essentially a snapshot of a contain
 
 |Command  	    | Command description	| Command example  	|
 | ------------- |-------------        |-----------|
+|`docker [COMMAND] --help`|  man page for docker 	||
 |`docker version`|  version number 	||
 |`docker info`| docker info (build, file system etc)  	||
 |`docker search`| Search a image by name	|search nginx image `docker search nginx`|
 |`docker [image] pull`| Pull a image by name	|pull nginx image `docker image pull nginx` or to specific a version `docker image pull nginx:stable-alpine` or `docker image pull nginx:1.16.1-alpine`|
 |`docker [image] ls`| list downloaded images	||
-
+|`docker [image] rmi image-id`| remove docker images	||
+|`docker [image] rm container-id`| remove docker images	||
+|`docker [container] ls`| equal to `docker ps`	| `COMMAND` field indicate the current running process in the container `-a` display stopped container|
+|`docker network ls`| list available networks	| by default started container will be added to **bridge(NAT)** network|
+|`docker run`| run a docker image	|<ul><li> --name [imagename]</li> <li>--rm [remove after stop]</li><li>-it run in interactive mode and allocate a TTY</li></ul>|
+|`docker stop/start`| stop/start a docker container	|start can only used to start a stopped container `-ai` interactive|
+|`docker kill`| send kill -9 to container(image name)and force it stop. container will be in exited status	|`docker stop` will send 15|
+|`docker [container] rm`| delete a container	|container status need to be `exited`|
 ### Docker cheat sheet
 
 A good summary [Docker Cheet Sheet](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf) 
