@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: rayx.cn@gmail.com
 description: "关于软件、Geek | Ray，Web & Mobile Lover，Software Engineer | 这里是 @Ray睿 类喵星人的个人博客。专注求索，创新"
 keyword: "RayX, 睿的博客, 博客, 个人网站, 互联网, Web, JavaScript, 后端, Backend, 移动物联网， Mobile Design, Machine Learning, 设计"
-url: "https://rayx.me"              # rayx.me
+url: "https://www.rayx.me"              # rayx.me
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
