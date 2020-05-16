@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "useful docker commands"
+title: "Useful docker commands"
 subtitle: 'practical docker'
 author: "Ray"
 header-style: text
