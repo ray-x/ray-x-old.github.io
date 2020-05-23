@@ -1,85 +1,58 @@
 ---
 layout: post
-title: "Dockerfile"
-subtitle: 'Build your own docker'
+title: "Docker storage"
+subtitle: 'Docker data volume'
 author: "Ray"
 header-style: text
 tags:
   - Docker
 
 ---
-We can use 
-* storage volume
-* `docker exec`, 
-* ansible (and similer software) 
-* `docker run` with options, 
-* container based on container
-* etc
- 
-to build a customized a docker. But with dockerfile it is easy to build a customized docker.
+
+Quote from docker.com
+"Copy-on-write is a strategy of sharing and copying files for maximum efficiency. If a file or directory exists in a lower layer within the image, and another layer (including the writable layer) needs read access to it, it just uses the existing file. The first time another layer needs to modify the file (when building the image or running the container), the file is copied into that layer and modified. This minimizes I/O and the size of each of the subsequent layers. These advantages are explained in more depth below."
+
+COW is low efficiency and thus I/O intensive application will need to mount data volume from host to docker.
+
+Storage volume will help data persistency after docker image removed. Also split data with binary executable.
+
+## Bind mounts 
+A volume that points to a user specified location on host file system
+![bind mount](https://docs.docker.com/storage/images/types-of-mounts-bind.png)
+/my/bind/volume  -> (bind)  to host /user/configured/directory
+
+## Docker managed volume
+Docker deamon creates managed volumes in a portion of host's file system that owned by docker
+`var/lib/docker/vfs/dir/<volume-id>
+
+## Usage: Use `-v` to use volume
+* Dockage-managed volume:
+  * docker run -it --name bbox1 -v /data busybox
+  * docker inspect -f {{.Mounts}} bbox1
+    * Inspect bbox1 container volume, volume id and directory in host ([{volume bb23e94e907dc29f3e62deddd332520d34f489177c5bbd5b03a8a75426430a19 /var/lib/docker/volumes/bb23e94e907dc29f3e62deddd332520d34f489177c5bbd5b03a8a75426430a19/_data /data local  true }]
+)
+* Bind mount volume
+  * docker run -it --name bbox2 -v HOSTDIR:VOLUMEDIR  busybox  e.g. `docker run -it --name bbox2 -v /data/volumes/b2:/data  busybox`
+  * docker inspect -f {{.Mounts}} bbox2
+    * output: `[{bind  /data/volumes/b2 /data   true rprivate}]`
+
+## Share folder and joint container with `-v` and `--volumes-from`
+* User case duplicate setup/data:
+  * Container A startup and access file/setup F in host.
+  * Container B startup and access F through container A
+  * Container C startup and access F through container A
+  * Container A could stop/pause
+* Network duplication
+  * Container A startup and startup network network1 and loopback and filesystem
+  * Container Nginx started up and use A to access network1 and loopback and nginx setup
+  * container tomcat started up and use A to access loopback and tomcat setup
+  * container mysql started up and use A to loopback and data volume
+  * Application server started up and use A to access loopback
 
 
-## Share system variable
-As discussed early, we can use a infrastructure container to share system variable to other container. (e.g use consul)
-and generate configure file based on system variable. e.g. a nginx file in /etc/nginx/conf.d/
-```
-# server.config
+### Instruction example
+Startup a infrastructure container infrcon access host folder /data/infracon/volume
+`docker run --name infracon -it -v /data/infracon/volume/:/data/web/html busybox`
 
-{
-  server_name $MY_NGX_SERVER_NAME;
-  listen $NGX_IP:$NGX_PORT;
-  root $WEB_ROOT;
-}
-```
-
-## Dockerfile
-* Source code for building Docker images. It contains all the comnands to assemble a image
-* Use docker build to access dockerfile
-
-### Dockerfile format
-  * `# Comment`
-  * INSTRUCTION arguments
-    * Instruction is **NOT** casesensitive, but it is a convention to use UPPERCASE to distinguish them from arguments more easily
-  * Docker runs instructions in a Dockerfile in order
-  * The first instruction must be `FROM` in order to specify the Base Docker Image from which your are building.
-
-### Docker ignore file  .dockerignore 
-Same as .gitignore
-
-### Environment variable and replacement
-* env variable (declared with **ENV** statement) can also be used in instructions as variables to be interpreted by Dockerfile
-* Env variable are notated in Dockerfile with $variable_name or ${variable_name}
-* ${variable_name} support bash modifiers
-  * ${var:-word} if var is set, return var value, otherwise return word
-  * ${var:+word} if var is set, return word value, otherwise return empty
-
-### Dockerfile instructions
-* From 
-  * Need to be first un-comment statement.
-  * Base image can be either local image or docker registry (e.g docker hub)
-  * Syntax (either)
-    * FROM <repository>[:<tag>] (repository is image name e.g nginx, redis, or ray-x/busybox-httpd)
-    * FROM <repository>@<digest-hash> 
-e.g.
-```Dockerfile
-FROM busybox:latest
-```
-
-
-*  MAINTAINER (depreacted)
-  e.g `MAINTAINER "rayxu <rayx@rayx.me>"`
-
-* LABELS
-  * Usage: `LABEL <key>=<value> [<key>=<value> ...]`
-  * The LABEL instruction adds metadata to an image in format of key=value e.g  `MAINTAINER="rayxu <rayx@rayx.me>"`
-
-### COPY
-  * Syntax:
-    *  COPY <src> [<src> ...] <dest>
-    *  COPY ["<src>", ... "<dest>"]
-  * Copies new files or directories from <src> and adds them to the filesystem of the image at the path <dest>.
-  * <src> may contain wildcards and matching will be done using Go’s filepath.Match rules.
-  * <dest> is an absolute path, or a path relative to WORKDIR.
-  * If <dest> doesn’t exist, it is created along with all missing directories in its path.
-  * If space existed in <src> use "<src>" e.g. "my src folder"
-
+Startup httpd
+`docker run --name httpd --network container:infracon --volumes-from infracon -it bosybox` 
