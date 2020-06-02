@@ -47,6 +47,7 @@ docker run -d \
 Here is a example [application.yml](https://github.com/tchiotludo/akhq/blob/dev/application.example.yml)
 
 To setup SASL
+Need to chang bootstrap, security, sasl configure:
 
 ```yml
 akhq:
@@ -69,7 +70,7 @@ akhq:
   connections:
     my-cluster-sasl:
       properties:
-        bootstrap.servers: "13.236.233.21:9092,3.105.19.102:9092,3.105.116.69:9092"
+        bootstrap.servers: "1.236.23.21:9092,3.15.1.12:9092,3.15.16.69:9092"
         security.protocol: SASL_PLAINTEXT
         sasl.mechanism: PLAIN
         sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="your username" password="your password";
