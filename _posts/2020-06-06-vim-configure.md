@@ -19,16 +19,16 @@ vimr is one of the best nvim-gui. But it does not in active development in last 
 project), some of the crash durning coding is annoying. I only use nvim/vim + kitty now.
 
 * nvim+kitty configured with pop menu:
-https://github.com/ray-x/dotfiles/raw/master/img/clap.jpg
-    ![vim_ide with nvim+kitty](https://github.com/ray-x/dotfiles/raw/master/img/menu.jpg)
+
+    ![vim_ide with nvim+kitty](https://raw.githubusercontent.com/ray-x/dotfiles/master/img/menu.jpg)
 
 * nvim clap preview:
 
-    ![vim_ide with nvim+kitty](https://github.com/ray-x/dotfiles/raw/master/img/clap.jpg)
+    ![vim_ide with nvim+kitty](https://raw.githubusercontent.com/ray-x/dotfiles/master/img/clap.jpg)
 
 * nvim+kitty coc+ale:
 
-    ![vim_ide with nvim+kitty](https://github.com/ray-x/dotfiles/raw/master/img/coc_float_errorcheck.jpg)
+    ![vim_ide with nvim+kitty](https://raw.githubusercontent.com/ray-x/dotfiles/master/img/coc_float_errorcheck.jpg)
 
 
 ## Vim Plugins
@@ -96,7 +96,7 @@ I used following plugin a lots
 
 nvim+kitty split view:
 
- ![vim_ide with nvim+kitty](https://github.com/ray-x/dotfiles/raw/master/img/kitty.jpg)
+ ![vim_ide with nvim+kitty](https://raw.githubusercontent.com/ray-x/dotfiles/master/img/kitty.jpg)
 
 
 [Check my repo](https://github.com/ray-x/dotfiles)
