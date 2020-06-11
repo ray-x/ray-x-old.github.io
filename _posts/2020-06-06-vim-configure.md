@@ -94,6 +94,38 @@ I used following plugin a lots
 
 * OMZshell is good, iterm2 is popular, but I turned to zprezto(with powerlevel10) + kitty. It is cooool and faster, check this:
 
+Some of the benfits of kitty:
+
+* Fully GPU/OpenGL rendering
+
+* Easy split/tabing
+
+* Configurable font. You can configure multiple fonts for display. e.g. my configure:
+
+
+```yml
+font_family      FiraCode Retina
+italic_font      InconsolataLGC Nerd Font Italic
+bold_font        FiraCode Semibold
+bold_italic_font InconsolataLGC Nerd Font BoldItalic
+
+# Font size (in pts)
+font_size        16.0
+
+
+```
+
+Why am I doing this:
+
+* bold font is too heavy... semibold is less distracting
+
+* Retina font is better than regular (I guess...)
+
+* nerd font support
+
+* Some font do not have italic (e.g. Cascadia)
+
+
 nvim+kitty split view:
 
  ![vim_ide with nvim+kitty](https://raw.githubusercontent.com/ray-x/dotfiles/master/img/kitty.jpg)
