@@ -5,14 +5,12 @@ subtitle: ["vi/kitty/zsh configuration I recommend", "vi/kitty/zsh 配置"]
 author: "Ray"
 header-style: text
 tags:
-  - Docker
+  - vim, kitty
 
 ---
 
-I found there are two GUI client that can be used to connect to kafka:
 
-
-# vim for a coding ide
+# vim as a coding ide
 
 I used to use slickedit, qt-creator, idea (webstorm, goland), vscode, but I am back to vi now. Thanks for `Plug` I do
 not need to configure my setup everytime....... I am still using sublime edit(as a notepad)
@@ -57,7 +55,9 @@ I used following plugin a lots
 
 * Programming support:
 
-  YCM (used to be my favourite, only for C++ and python now), but I am using coc.nvim more offen now, vim-go(for go testing, highlight, gopls disabled),CompleteParameter, emmet-vim, tagbar/vista, polygot, and some language specific plugins (e.g html, js/ts, swift), ctags/gutentags, vim-less, govim(macvim only, with some cool AST)
+  YCM (used to be my favourite, only for C++ and python now), but I am using coc.nvim more offen now,
+  vim-go(for go testing, highlight, gopls disabled),CompleteParameter, emmet-vim, tagbar/vista, polygot,
+  and some language specific plugins (e.g html, js/ts, swift), ctags/gutentags, vim-less, govim(macvim only, with some cool AST)
 
 * Debug:
 
