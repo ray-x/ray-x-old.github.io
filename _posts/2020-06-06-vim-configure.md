@@ -97,3 +97,6 @@ I used following plugin a lots
 nvim+kitty split view:
 
  ![vim_ide with nvim+kitty](https://github.com/ray-x/dotfiles/blob/master/img/kitty.jpg)
+
+
+Check my repo  [](https://github.com/ray-x/dotfiles)
