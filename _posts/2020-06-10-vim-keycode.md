@@ -14,7 +14,8 @@ tags:
 
 This had never been a issue until I give up vimr and use kitty + neovim. I found that my ``<S-Fn>`` no longer works.
 
-Well, do panic, use `infocmp` or `keybind` or `keycode` to find out how the key is defined.
+Well, do panic, use `infocmp` or `keybind` or `keycode` to find out how the key is defined (also can use `cat` or `sed
+-n -l`).
 For kitty `<S-F1>` key code is `^[[1;2P` . Here `^[` means `<Esc>` or `\E`
 
 vim and neovim handle key code slight different.
