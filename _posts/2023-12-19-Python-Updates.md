@@ -4,10 +4,8 @@ title: "Whats new in python 3.10"
 author: "Ray"
 header-style: text
 tags:
-    - django
     - backend
     - python
-    - DRF
 ---
 
 # Python 3.10
