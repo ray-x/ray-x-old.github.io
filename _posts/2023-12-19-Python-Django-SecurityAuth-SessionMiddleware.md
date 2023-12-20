@@ -58,7 +58,7 @@ def my_view(request):
 ### setting.py
 
     SESSION_ENGINE = 'django.contrib.sessions.backends.db' # 引擎（默认）
-    # use 'django.contrib.sessions.backends.cached_db' for high traffic 
+    # use 'django.contrib.sessions.backends.cached_db' for high traffic
     SESSION_COOKIE_NAME ＝ "sessionid" # Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符串（默认）
     SESSION_COOKIE_PATH ＝ "/" # Session的cookie保存的路径（默认）
     SESSION_COOKIE_DOMAIN = None # Session的cookie保存的域名（默认）
@@ -75,7 +75,7 @@ def my_view(request):
     # 普通cookie是明文传输的，可以直接在客户端直接打开，所以需要加盐，解盐之后才能查看
     request.get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
 
-# Login HTML {#login-html collapsed="true"}
+# Login HTML
 
 ``` django
 {% block content %}
