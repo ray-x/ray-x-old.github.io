@@ -5,17 +5,17 @@ tags: python, asyncio, coroutine
 term: async, await
 ---
 
-# History {#history heading="2"}
+# History
 
-## greenlet {#greenlet heading="3"}
+## greenlet
 
-## yield {#yield heading="3"}
+## yield
 
-## python3.4 asyncio {#python3.4-asyncio heading="3"}
+## python3.4 asyncio
 
 ### `yield from asyncio.sleep(1)` `yield` allow switch to other coroutine if block on IO
 
-## python3.5 (async, await), 3.7(run) {#python3.5-async-await-3.7run heading="3"}
+## python3.5 (async, await), 3.7(run)
 
 ### await, async
 
@@ -34,9 +34,9 @@ asyncio.run(main())
 
 ## python 3.11 TaskGroup
 
-# Asynchronous Programming {#asynchronous-programming heading="2"}
+# Asynchronous Programming
 
-## event loop {#event-loop heading="3" collapsed="true"}
+## event loop
 
 ``` python
 import asyncio
@@ -44,13 +44,13 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete([task1, task2])
 ```
 
-## Basic of coroutines {#basic-of-coroutines heading="3" term="Coroutines are computer program components that allow execution to be suspended and resumed, generalizing subroutines for cooperative multitasking." desc="Coroutines can be entered, exited, and resumed at many different points. They can be implemented with the [[https://docs.python.org/3/reference/compound_stmts.html#async-def][async def]] statement." collapsed="true"}
+## Basic of coroutines
 
-## [A diagram showing the difference between subroutine and coroutine calling](https://bbc.github.io/cloudfit-public-docs/images/asyncio/SubVsCoRoutines.png){:height 181, :width 346} {#a-diagram-showing-the-difference-between-subroutine-and-coroutine-callingheight-181-width-346 collapsed="true"}
+## [A diagram showing the difference between subroutine and coroutine calling](https://bbc.github.io/cloudfit-public-docs/images/asyncio/SubVsCoRoutines.png){:height 181, :width 346}
 
-## async {#async heading="3" term="async def introduce *native coroutine function* or an *asynchronous generator* can used with ~async with~ or ~asnyc for~" id="651762da-df35-462d-8418-be4826903862" collapsed="true"}
+## async
 
-### coroutine function and coroutine object {#coroutine-function-and-coroutine-object heading="4"}
+### coroutine function and coroutine object
 
 ``` python
 async def cotask():  # a coroutine task
@@ -61,7 +61,7 @@ asyncio.get_event_loop().run_until_complete(cotask())  # run the task
 asyncio.run(cotask())  # python 3.7
 ```
 
-## await {#await heading="3" term="The keyword ~await~ passes function control back to the event loop. (It suspends the execution of the surrounding coroutine.)" collapsed="true"}
+## await
 
 ### If Python encounters an `await f()` expression in the scope of `g()`, `await` tells the event loop, "Suspend execution of `g()` until whatever I'm waiting on ---the result of `f()` ---is returned. In the meantime, go let something else run.\"
 
@@ -87,7 +87,7 @@ async def dep_others():
 asyncio.run(dep_others())
 ```
 
-## Future {#future id="6512ae22-02c0-42c1-bb30-97094aae783d" heading="3" term="an eventual result of an asynchronous operation. Not thread-safe." collapsed="true"}
+## Future
 
 ### Future is an [awaitable](https://docs.python.org/3/glossary.html#term-awaitable) object. Coroutines can await on Future objects until they either have a result or an exception set, or until they are cancelled. A Future can be awaited multiple times and the result is same.
 
@@ -118,7 +118,7 @@ async def main():
 asyncio.run(main())
 ```
 
-### concurrent.futures {#concurrent.futures desc="The [[https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures][concurrent.futures]] module provides a high-level interface for asynchronously executing callables."}
+### concurrent.futures
 
 1.  The `concurrent.futures` module is part of the Python standard
     library starting from Python 3.2. It provides a high-level interface
@@ -187,7 +187,7 @@ asyncio.run(main())
 
         **\*\***
 
-## Tasks {#tasks heading="3" term="A [[https://docs.python.org/3/library/asyncio-future.html#asyncio.Future][Future-like]] object that runs a Python [[https://docs.python.org/3/library/asyncio-task.html#coroutine][coroutine]]. Not thread-safe." desc="Each event loop contains a number of tasks, and every coroutine that is executing is doing so inside a task." constructor="~asyncio.create_task(example_coroutine_function())~" collapsed="true"}
+## Tasks
 
 ### Syntax
 
@@ -232,15 +232,15 @@ async def main():
 asyncio.run(main())
 ```
 
-### Video resource {{video <https://www.bilibili.com/video/BV1NA411g7yf?p=7&vd_source=3beef1bd86c86cf14f277319e599dab9>}}
+### Video resource
 
-## Async Queue {#async-queue heading="4" term="asyncio queues are designed to be similar to classes of the [[https://docs.python.org/3/library/queue.html#module-queue][queue]] module. Although asyncio queues are not thread-safe, they are designed to be used specifically in async/await code." def="asyncio.Queue(maxsize=0)" constructor="asyncio"}
+## Async Queue
 
-## Asynchronous Iterators {#asynchronous-iterators term="An asynchronous iterator is an object that implements the ~__aiter__()~ and ~__anext__()~ methods." heading="3" collapsed="true"}
+## Asynchronous Iterators
 
 ### ((65137d16-a06a-40e4-b28e-5fa4474017d5))
 
-### Sample {#sample collapsed="true"}
+### Sample
 
 ``` python
 class Ticker:
@@ -268,7 +268,7 @@ async def ticker(delay, to):
         await asyncio.sleep(delay)
 ```
 
-## Asynchronous contex manager {#asynchronous-contex-manager desc="An asynchronous context manager is a context manager that is able to suspend execution in its __aenter__ and __aexit__ methods." heading="3" collapsed="true"}
+## Asynchronous contex manager
 
 ### async ctx mgr provide a context manager that can be suspended when entering and exiting. This is achieved by using `async with`. It is same way as `with` been used in other python expressions (e.g. file open)
 
@@ -290,7 +290,7 @@ finally:
 
 ### It must be used inside a coroutine `async def`
 
-## uvloop {#uvloop desc="uvloop is a fast, drop-in replacement of the built-in asyncio event loop. uvloop is implemented in Cython and uses libuv under the hood." heading="3" collapsed="true"}
+## uvloop
 
 ### uvloop [GitHub - MagicStack/uvloop: Ultra fast asyncio event loop.](https://github.com/magicstack/uvloop) is 2\~3 times faster than asyncio
 
@@ -316,7 +316,7 @@ else:
 
 ### It used by asgi uvicorn
 
-## Practical examples {#practical-examples heading="3" collapsed="true"}
+## Practical examples
 
 ### redis
 
