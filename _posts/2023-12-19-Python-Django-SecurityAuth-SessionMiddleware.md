@@ -83,26 +83,26 @@ def my_view(request):
 # Login HTML
 
 
-<div class="account">
-    <h2>用户登录</h2>
-    <div class="panel-body">
-        <form method="post" novalidate>
-            {% csrf_token %}
-            <div class="form-group">
-                <label>用户名</label>
-                {{ form.username }}
-                <span style="color: red;">{{ form.errors.username.0 }}</span>
-            </div>
-            <div class="form-group">
-                <label>密码</label>
-                {{ form.password }}
-                <span style="color: red;">{{ form.errors.password.0 }}</span>
-            </div>
+    <div class="account">
+        <h2>用户登录</h2>
+        <div class="panel-body">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>用户名</label>
+                    {{ form.username }}
+                    <span style="color: red;">{{ form.errors.username.0 }}</span>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    {{ form.password }}
+                    <span style="color: red;">{{ form.errors.password.0 }}</span>
+                </div>
 
-            <button type="submit" class="btn btn-primary center-block" style="width: 80px;">登录</button>
-        </form>
+                <button type="submit" class="btn btn-primary center-block" style="width: 80px;">登录</button>
+            </form>
+        </div>
     </div>
-</div>
 
 
 
