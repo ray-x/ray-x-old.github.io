@@ -1,5 +1,5 @@
 # Site settings
-title: Build something fun
+title: Build something fun by Ray
 SEOTitle: 睿的博客 | Ray's Blog
 header-img: img/home-bg.jpg
 email: rayx.cn@gmail.com
@@ -15,7 +15,7 @@ future: true
 RSS: false
 github_username:    ray-x
 twitter_username:   rayx.cn
-#facebook_username:  
+#facebook_username:
 linkedin_username:  rayx
 
 
