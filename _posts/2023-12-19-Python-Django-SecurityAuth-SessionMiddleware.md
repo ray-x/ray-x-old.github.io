@@ -36,12 +36,13 @@ def my_view(request):
 ## `csrf_protect(view)` {#csrf_protectview collapsed="true"}
 
 ### Decorator that provides the protection of CsrfViewMiddleware to a view. Usages:
-
+```python
     from django.shortcuts import render
     from django.views.decorators.csrf import csrf_protect
     @csrf_protect
     def my_view(request):
         return render(request, "a_template.html", {})
+```
 
 ## `requires_csrf_token(view)`
 
@@ -56,7 +57,7 @@ def my_view(request):
 ## Default session setup
 
 ### setting.py
-
+```python
     SESSION_ENGINE = 'django.contrib.sessions.backends.db' # 引擎（默认）
     # use 'django.contrib.sessions.backends.cached_db' for high traffic
     SESSION_COOKIE_NAME ＝ "sessionid" # Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符串（默认）
@@ -67,6 +68,7 @@ def my_view(request):
     SESSION_COOKIE_AGE = 1209600 # Session的cookie失效日期（2周）（默认）
     SESSION_EXPIRE_AT_BROWSER_CLOSE = False # 是否关闭浏览器使得Session过期（默认）
     SESSION_SAVE_EVERY_REQUEST = False # 是否每次请求都保存Session，默认修改之后才保存（默认）
+```
 
 ## Cookie
 
@@ -169,9 +171,7 @@ mysql> select * from django_session;
 +----------------------------------+-------------------------------------------------------------------------------------------------+----------------------------+
 | zkgq26t7hqx3yu6xo04bws856002n5aj | eyJpbmZvIjp7ImlkIjoxMiwibmFtZSI6InRva2VyIn19:1pElim:Tus2mHaJUTNTfzhppuah8N0FVdLXQxyvRk_4n-4fP6g | 2023-01-23 06:33:24.373104 |
 +----------------------------------+-------------------------------------------------------------------------------------------------+----------------------------+
-```
-
-# #+BEGIN~SRC~ sql
+``` sql
 
 mysql\> select \* from django~session~;
 
@@ -182,8 +182,7 @@ mysql\> select \* from django~session~;
                                                                                                                                         06:33:24.373104
   ---------------------------------- -------------------------------------------------------------------------------------------------- -----------------
 
-```{=org}
-#+END_SRC
+
 ```
 # Django Middleware
 
@@ -251,4 +250,3 @@ def logout(request):
     return redirect("/login/")
 ```
 
-\* \* \* \* \*
