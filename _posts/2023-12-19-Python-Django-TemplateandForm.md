@@ -159,9 +159,9 @@ python manage.py startapp [app name]
 
     1.  css, js, images, json..
 
-    2.  `{% load static %}` to load static files 👍
+    2.  `{% raw %}{% load static %}{% endraw %}` to load static files 👍
 
-    3.  `{% static  'css/bootstrap.css' %}` to refer to those files
+    3.  `{% raw %}{% static  'css/bootstrap.css' %}{% endraw %}` to refer to those files
 
 3.  urls.py in app
 
@@ -324,9 +324,9 @@ render(request, 'template_file.html', {"var1": value, "var2", value})
 ``` django
 {{ var1 }}
 {{ listVar.1 }} <!-- listVar[0] -->
-{% for item in lst %}  <!-- loop list -->
+{% raw %}{% for item in lst %}{% endraw %}  <!-- loop list -->
 <span> {{ item }} </span>
-{% endfor %}
+{% raw %}{% endfor %}{% endraw %}
 
 <span> {{ dict }} </span> <!-- object  -->
 <span> {{ dict.name }} </span> <!-- object attribute -->
@@ -337,30 +337,30 @@ render(request, 'template_file.html', {"var1": value, "var2", value})
 Loop and condition
 
 ``` django
-{% for item in dict.keys %}  <!-- loop object  -->
+{% raw %}{% for item in dict.keys %}{% endraw %}  <!-- loop object  -->
 <span> {{ item }} </span>
-{% endfor %}
+{% raw %}{% endfor %}{% endraw %}
 
-{% for k, v in dict.items %}  <!-- loop object  -->
+{% raw %}{% for k, v in dict.items %}{% endraw %}  <!-- loop object  -->
 <span> {{ k }} = {{ v }} </span>
-{% endfor %}
+{% raw %}{% endfor %}{% endraw %}
 
-{% if n == 'xxx' %}
+{% raw %}{% if n == 'xxx' %}{% endraw %}
 <h1> xxxx </h1>
-{% elif n == "XXX" %}
+{% raw %}{% elif n == "XXX" %}{% endraw %}
 <h1> XXX </h1>
-{% else %}
+{% raw %}{% else %}{% endraw %}
 <h1> ssss </h1>
-{% endif %}
+{% raw %}{% endif %}{% endraw %}
 ```
 
-### Template tags `{% ... %}` generally do not require double curly braces or quotes for variable names, as they inherently expect Python-like syntax.
+### Template tags `{% raw %}{% ... %}{% endraw %}` generally do not require double curly braces or quotes for variable names, as they inherently expect Python-like syntax.
 
 ### `value="{{ title|default:'depart name' }}"` or `value={{ title|default:'depart name' }}`
 
 1.  double quotes is strongly recommended
 
-### Call a function inside `{{}}` or `{% %}`
+### Call a function inside `{{}}` or `{% raw %}{% %}{% endraw %}`
 
 1.  `{{ obj.get_gender_display() }}` is invalid. You can not call a
     function with `()` inside `{{}}`, use `{{ obj.get_gender_display }}`
@@ -375,12 +375,12 @@ Loop and condition
 ### syntax
 
 ``` html
-{% extends 'template_name.html' %}
+{% raw %}{% extends 'template_name.html' %}{% endraw %}
 
 # examples
-{% extends "./base2.html" %}
-{% extends "../base1.html" %}
-{% extends "./my/base3.html" %}
+{% raw %}{% extends "./base2.html" %}{% endraw %}
+{% raw %}{% extends "../base1.html" %}{% endraw %}
+{% raw %}{% extends "./my/base3.html" %}{% endraw %}
 ```
 
 ### extends examples
@@ -389,18 +389,18 @@ Loop and condition
 
     ``` django
     <h1>Main Template</h1>
-    {% block content %}
-    {% endblock %}
+    {% raw %}{% block content %}{% endraw %}
+    {% raw %}{% endblock %}{% endraw %}
     ```
 
 2.  extends.html overwrite block: content
 
     ``` django
-    {% extends "template.html" %}
+    {% raw %}{% extends "template.html" %}{% endraw %}
 
-    {% block content %}
+    {% raw %}{% block content %}{% endraw %}
     <h2> GeeksForGeeks is the Best
-    {% endblock %}
+    {% raw %}{% endblock %}{% endraw %}
 
     ```
 
@@ -448,7 +448,7 @@ Should be write as
 </head>
 <body>
 
-{% include 'top.html' with mycss="acss" %}
+{% raw %}{% include 'top.html' with mycss="acss" %}{% endraw %}
 
 <h2> 网页body部分 </h2>
 
@@ -459,17 +459,17 @@ Should be write as
 ### include passing multiple values
 
 ``` django
-{% include "name_snippet.html" with person="Jane" greeting="Hello" %}
+{% raw %}{% include "name_snippet.html" with person="Jane" greeting="Hello" %}{% endraw %}
 ```
 
 And with django variables from python codes
 
 ``` django
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
 
-{% block panel %}
-{% include 'form.html' with title=title id=id %}
-{% endblock %}
+{% raw %}{% block panel %}{% endraw %}
+{% raw %}{% include 'form.html' with title=title id=id %}{% endraw %}
+{% raw %}{% endblock %}{% endraw %}
 ```
 
 # Form
@@ -564,10 +564,10 @@ There are a few ways to present form objects
 
 ``` django
 <form action = "" method = "post">
-    {% csrf_token %}
-    {% for field in form %}
+    {% raw %}{% csrf_token %}{% endraw %}
+    {% raw %}{% for field in form %}{% endraw %}
     {{ field }}
-    {% endfor %}
+    {% raw %}{% endfor %}{% endraw %}
     <input type="submit" value=Submit">
 </form>
 ```
@@ -576,7 +576,7 @@ There are a few ways to present form objects
 
 ``` django
 <form action = "" method = "post">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     {{ form }}
     <input type="submit" value=Submit">
 </form>
@@ -793,7 +793,7 @@ class RenewBookForm(forms.Form):
 
 ``` django
 <form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
+  {% raw %}{% csrf_token %}{% endraw %}
       {{movie_form}}
       <button class="btn btn-primary my-4" type="submit">Submit</button>
 </form>
