@@ -79,8 +79,10 @@ def my_view(request):
 
 # Login HTML
 
+Wrap with `{% block content %}`
+
 ``` html
-{% block content %}
+
 <div class="account">
     <h2>用户登录</h2>
     <div class="panel-body">
@@ -101,7 +103,7 @@ def my_view(request):
         </form>
     </div>
 </div>
-{% endblock %}
+
 
 ```
 
