@@ -77,7 +77,7 @@ def my_view(request):
 
 # Login HTML
 
-``` django
+``` html
 {% block content %}
 <div class="account">
     <h2>用户登录</h2>
@@ -103,7 +103,6 @@ def my_view(request):
 
 ```
 
-\*\*
 
 # Login Form
 
