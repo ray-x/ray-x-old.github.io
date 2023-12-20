@@ -6,9 +6,9 @@ url: "\\[\\[https://github.com/encode/django-rest-framework\\]\\[GitHub -
   encode/django-rest-framework: Web APIs for Django. 🎸\\]\\]"
 ---
 
-# Django Restful Framework Videos {#django-restful-framework-videos heading="2" url="[[https://www.bilibili.com/video/BV1xj411C7ws/][drf实战和源码剖析]]" channel="https://space.bilibili.com/336469068" tags="rest, DRF, python, django, web, API" date="[[Sep 25th, 2023]]" tutor="武沛齐" collapsed="true"}
+# Django Restful Framework Videos
 
-# Resources {#resources heading="2" collapsed="true"}
+# Resources
 
 ## [银角大王-武沛齐Django-Drf框架与django3项目搭建案例全套教学 完整版~哔哩哔哩bilibili~](https://www.bilibili.com/video/BV1Sc41157hr)
 
@@ -20,13 +20,13 @@ url: "\\[\\[https://github.com/encode/django-rest-framework\\]\\[GitHub -
 
 ## [黑马 Django REST Framework框架经典教程~哔哩哔哩bilibili~](https://www.bilibili.com/video/BV1Sz4y1o7E8)
 
-# Jump start {#jump-start heading="2" collapsed="true"}
+# Jump start
 
-## install {#install heading="3"}
+## install
 
 ### [Home - Django REST framework install](https://www.django-rest-framework.org/#installation)
 
-## usage {#usage heading="3" collapsed="true"}
+## usage
 
 ### [Quickstart - Django REST framework](https://www.django-rest-framework.org/tutorial/quickstart)
 
@@ -56,11 +56,11 @@ class LoginView(APIView):
 # urls.py
 urlpatterns = {
   path('login/', views.LoginView.as_view())
-  path('login2/', views.login()) 
+  path('login2/', views.login())
 }
 ```
 
-## minium django setup {#minium-django-setup heading="3"}
+## minium django setup
 
 ``` python
 INSTALLED_APPS = [
@@ -95,9 +95,9 @@ REST_FRAMEWORK = {
 
 ```
 
-## ((651210f8-a2fe-4194-9216-f1eefdded8a6)) {#f8-a2fe-4194-9216-f1eefdded8a6 heading="2"}
+## ((651210f8-a2fe-4194-9216-f1eefdded8a6))
 
-# APIView {#apiview heading="2" desc="REST framework provides an ~APIView~ class, which subclasses Django's ~View~ class." collapsed="true"}
+# APIView
 
 ## APIView \<- django.views.View and it implemented `as_view()`
 
@@ -113,11 +113,11 @@ REST_FRAMEWORK = {
 
 **\***
 
-# Requests {#requests heading="2" desc="REST framework's ~Request~ class extends the standard ~HttpRequest~,  adding support for REST framework's flexible request parsing and request authentication." collapsed="true"}
+# Requests
 
-## [Requests - Django REST framework](https://www.django-rest-framework.org/api-guide/requests/) {#requests---django-rest-framework heading="3"}
+## [Requests - Django REST framework](https://www.django-rest-framework.org/api-guide/requests/)
 
-## DRF extend django HttpRequests by adding {#drf-extend-django-httprequests-by-adding heading="3"}
+## DRF extend django HttpRequests by adding
 
 ### `data`: use `request.data.get('fieldname')` to get data from a POST request
 
@@ -145,11 +145,11 @@ REST_FRAMEWORK = {
 
     **\***
 
-# Authentication {#authentication-1 heading="2" desc="Auhentication is the mechanism of associating an incoming request with a set of identifying credentials, such as the user the request came from, or the token that it was signed with. The [[https://www.django-rest-framework.org/api-guide/permissions/][permission]] and [[https://www.django-rest-framework.org/api-guide/throttling/][throttling]] policies can then use those credentials to determine if the request should be permitted." id="65136fb1-b3fd-40b2-b22b-d8ea5e0908b9"}
+# Authentication
 
-## Create a new Authentiation class {#create-a-new-authentiation-class heading="3"}
+## Create a new Authentiation class
 
-## SimpleAuth {#simpleauth heading="3" collapsed="true"}
+## SimpleAuth
 
 ``` python
 # auth.py
@@ -170,7 +170,7 @@ class UserView(APIView):
 
 ```
 
-## Apply Authentication Globally {#apply-authentication-globally heading="3" collapsed="true"}
+## Apply Authentication Globally
 
 ### in Settings.py
 
@@ -187,14 +187,14 @@ REST_FRAMEWORK= {
     is not `None` set 2^nd^ to `[]` will disable global setting and
     disable Auth
 
-## Multi Authenticators {#multi-authenticators heading="4" collapsed="true"}
+## Multi Authenticators
 
 ### If `authenticate()` returns `None` when failed, DRF will go to next Authenticator until the return value is not None.
 
 ### If all returns None. then `self.auth == None ~
 *** If you want to prevent ~None` go through, put an authenticator that will raise fail at end of list
 
-### Verify token in Authentication middleware {#verify-token-in-authentication-middleware collapsed="true"}
+### Verify token in Authentication middleware
 
 ``` python
 class QueryTokenAuth(BaseAuthentication):
@@ -225,7 +225,7 @@ class HeaderTokenAuth(BaseAuthentication):
 
 ### Auth success when `any()` of authenticator return `user, auth`
 
-## Login, Register and token issuing {#login-register-and-token-issuing heading="3" collapsed="true"}
+## Login, Register and token issuing
 
 ### [Login and Register User --- Django Rest Framework \| by Emre Cevik \| Python \| Django & Rest \| Medium](https://medium.com/django-rest/django-rest-framework-login-and-register-user-fd91cf6029d5)
 
@@ -257,13 +257,13 @@ class LoginView(APIView):
 
 ```
 
-# Permission {#permission heading="2" desc="Together with [[https://www.django-rest-framework.org/api-guide/authentication/][authentication]] and [[https://www.django-rest-framework.org/api-guide/throttling/][throttling]], permissions determine whether a request should be granted or denied access." url="[[https://www.django-rest-framework.org/api-guide/permissions/][DRF: Permission]]" collapsed="true"}
+# Permission
 
 ## Permissions are used to grant or deny access for different classes of users to different parts of the API.
 
 ## The simplest style of permission would be to allow access to any authenticated user, and deny access to any unauthenticated user. This corresponds to the `IsAuthenticated` class in REST framework.
 
-## Sample permission class {#sample-permission-class collapsed="true"}
+## Sample permission class
 
 ``` python
 from rest_framework import permissions
@@ -310,7 +310,7 @@ REST_FRAMEWORK = {
 
 ## One difference between ((65136fb1-b3fd-40b2-b22b-d8ea5e0908b9)) is if a list of Per-Class is add. **ALL** Permission check need success/True. It is **AND** operation
 
-## Add permission check in view {#add-permission-check-in-view collapsed="true"}
+## Add permission check in view
 
 ``` python
 class OrderView(APIView):
@@ -321,7 +321,7 @@ class OrderView(APIView):
 
 ### if you need to override default permission check mechanism, override `check_permissions()` function in view class 💀
 
-# Throttling {#throttling heading="2" desc="Throttling is similar to [[https://www.django-rest-framework.org/api-guide/permissions/][permissions]], in that it determines if a request should be authorized. Throttles indicate a temporary state, and are used to control the rate of requests that clients can make to an API." collapsed="true"}
+# Throttling
 
 ## As with permissions, multiple throttles may be used. Your API might have a restrictive throttle for unauthenticated requests, and a less restrictive throttle for authenticated requests.
 
@@ -359,7 +359,7 @@ FBV
         }
         return Response(content)
 
-## Define a throttle Class {#define-a-throttle-class collapsed="true"}
+## Define a throttle Class
 
 ### In most case throttle class in django is good enough for 99% of the user cases. But in case you need to define a throttle of your own, here is two examples:
 
@@ -371,7 +371,7 @@ class RandomRateThrottle(throttling.BaseThrottle):
 class RandomRateThrottle2(throttling.SimpleRateThrottle):
     def allow_request(self, request, view):
       if super().allow_request(request, view):
-        return random.randint(1, 10) != 1      
+        return random.randint(1, 10) != 1
 
 class MyRateThrottle(SimpleRateThrottle):
     cache = default_cache  # 访问记录存放在django的缓存中（需设置缓存）
@@ -399,14 +399,14 @@ class MyRateThrottle(SimpleRateThrottle):
             "data": "访问频率限制",
             'detail': "需等待{}s才能访问".format(int(wait))
         }
-        raise ThrottledException(detail)      
+        raise ThrottledException(detail)
 ```
 
-# Versioning {#versioning heading="2" desc="Versioning allows you to alter behavior between different clients. DRF provides for a number of different versioning schemes." collapsed="true"}
+# Versioning
 
-## Config API version {#config-api-version heading="3"}
+## Config API version
 
-### ![](../assets/image-20210819154455680_1696666609261_0.png) {#section-1}
+### ![](../assets/image-20210819154455680_1696666609261_0.png)
 
 ### settings.py
 
@@ -425,14 +425,14 @@ class ProfileList(APIView):
 
 **\***
 
-## Version schema {#version-schema heading="3" collapsed="true"}
+## Version schema
 
-### [AcceptHeaderVersioning](https://www.django-rest-framework.org/api-guide/versioning/#acceptheaderversioning) {#acceptheaderversioning heading="3"}
+### [AcceptHeaderVersioning](https://www.django-rest-framework.org/api-guide/versioning/#acceptheaderversioning)
 
 > GET *bookings* HTTP/1.1 Host: example.com Accept: application/json;
 > version=1.0
 
-### [URLPathVersioning](https://www.django-rest-framework.org/api-guide/versioning/#urlpathversioning) {#urlpathversioning heading="3"}
+### [URLPathVersioning](https://www.django-rest-framework.org/api-guide/versioning/#urlpathversioning)
 
 > GET *v1/bookings* HTTP/1.1 Host: example.com Accept: application/json
 
@@ -451,7 +451,7 @@ urlpatterns = [
 ]
 ```
 
-### [NamespaceVersioning](https://www.django-rest-framework.org/api-guide/versioning/#namespaceversioning) {#namespaceversioning heading="3"}
+### [NamespaceVersioning](https://www.django-rest-framework.org/api-guide/versioning/#namespaceversioning)
 
 > GET *bookings* HTTP/1.1 Host: v1.example.com Accept: application/json
 
@@ -469,18 +469,18 @@ urlpatterns = [
 ]
 ```
 
-### [QueryParameterVersioning](https://www.django-rest-framework.org/api-guide/versioning/#queryparameterversioning) {#queryparameterversioning heading="3"}
+### [QueryParameterVersioning](https://www.django-rest-framework.org/api-guide/versioning/#queryparameterversioning)
 
 > GET *something*?version=0.1 HTTP/1.1 Host: example.com Accept:
 > application/json
 
-## Reverse URL {#reverse-url heading="3"}
+## Reverse URL
 
-### ![](../assets/image-20210820105543193-3386187_1696666581416_0.png) {#section-2}
+### ![](../assets/image-20210820105543193-3386187_1696666581416_0.png)
 
-### ![](../assets/image-20210820112152615_1696666677979_0.png) {#section-3}
+### ![](../assets/image-20210820112152615_1696666677979_0.png)
 
-# Request parsing {#request-parsing heading="2" desc="REST framework includes a number of built in Parser classes, that allow you to accept requests with various media types. There is also support for defining your own custom parsers" collapsed="true"}
+# Request parsing
 
 ## Jsonparser
 
@@ -488,15 +488,15 @@ urlpatterns = [
 
 ## File parser (MultiPartParser)
 
-### ![](../assets/image-20210827083047327_1696668472683_0.jpg) {#section-4}
+### ![](../assets/image-20210827083047327_1696668472683_0.jpg)
 
 ## File uploader
 
-### ![](../assets/image-20210827084403453_1696668497009_0.jpg) {#section-5}
+### ![](../assets/image-20210827084403453_1696668497009_0.jpg)
 
 **\*** \*\*
 
-# Content negotiation {#content-negotiation heading="2" desc="Content negotiation is the process of selecting one of multiple possible representations to return to a client, based on client or server preferences." url="[[https://www.django-rest-framework.org/api-guide/content-negotiation/][Content negotiation - Django REST framework]]" collapsed="true"}
+# Content negotiation
 
 ## The client need specify \`content-type\`and the value should be valid http `media type`
 
@@ -518,13 +518,13 @@ REST_FRAMEWORK = {
 
 \*\* \*\*
 
-# Serializers {#serializers heading="2" desc="Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into ~JSON~, ~XML~ or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data."}
+# Serializers
 
-## Declaring Serializers {#declaring-serializers heading="3"}
+## Declaring Serializers
 
 ### In a sense, Serializers is similar to ((651cfa1b-ce5c-486b-8f45-5f3cee8f113e))
 
-### Create a serializer for `Comment` {#create-a-serializer-for-comment collapsed="true"}
+### Create a serializer for `Comment`
 
 ``` python
 from datetime import datetime
@@ -544,14 +544,14 @@ class CommentSerializer(serializers.Serializer):
     created = serializers.DateTimeField()
 ```
 
-## Serializing object {#serializing-object heading="3"}
+## Serializing object
 
 ### use \~CommentSerializer\~ to serialize a comment, or list of comments
 
 ``` python
 serializer = CommentSerializer(comment)
 serializer.data
-# {'email': 'leila@example.com', 'content': 'foo bar', 'created': '2016-01-27T15:17:10.375877'}
+#
 comments = [comment, comment] # array of objects
 serializer = CommentSerializer(comments, many=True)
 serializer.data # a list of objects
@@ -560,7 +560,7 @@ from rest_framework.renderers import JSONRenderer
 json = JSONRenderer().render(serializer.data)
 ```
 
-## Deserializing {#deserializing heading="3"}
+## Deserializing
 
 ``` python
 import io
@@ -572,10 +572,10 @@ serializer = CommentSerializer(data=data)
 serializer.is_valid()
 # True
 serializer.validated_data
-# {'content': 'foo bar', 'email': 'leila@example.com', 'created': datetime.datetime(2012, 08, 22, 16, 20, 09, 822243)}
+#
 ```
 
-## ModelSerializer {#modelserializer heading="3" desc="serializer classes that map closely to Django model definitions."}
+## ModelSerializer
 
 ### The `ModelSerializer` class provides a shortcut that lets you automatically create a \~Serializer\~ class with fields that correspond to the Model fields. It based on `Serializer` class and
 
@@ -586,7 +586,7 @@ serializer.validated_data
 -   It includes simple default implementations of `.create()` and
     `.update()`.
 
-### Declaring {#declaring heading="4"}
+### Declaring
 
 ``` python
 class AccountSerializer(serializers.ModelSerializer):
@@ -604,7 +604,7 @@ class AccountSerializer(serializers.ModelSerializer):
 2.  `write_only` used for input data serializer, e.g. password/token
     field
 
-### choice fields and foreign key {#choice-fields-and-foreign-key heading="4"}
+### choice fields and foreign key
 
 1.  e.g. gender: ((1:\'male\'), (2, \'female\'))
 
@@ -627,7 +627,7 @@ class AccountSerializer(serializers.ModelSerializer):
     number 1\|2, when read and show in API we want string of
     male\|female
 
-### define own field {#define-own-field heading="4" collapsed="true"}
+### define own field
 
 ``` python
 class AccountSerializer(serializers.ModelSerializer):
@@ -638,7 +638,7 @@ class AccountSerializer(serializers.ModelSerializer):
         return obj.first_name + obj.last_name
 ```
 
-### nested and embed {#nested-and-embed heading="4" collapsed="true"}
+### nested and embed
 
 1.  Suppose there are multiple tables with 1:1 or m:n relations
 
@@ -693,7 +693,7 @@ class AccountSerializer(serializers.ModelSerializer):
             return Response(ser.data)
     ```
 
-### Inheritances {#inheritances heading="4" collapsed="true"}
+### Inheritances
 
 ``` python
 from rest_framework.views import APIView
@@ -724,9 +724,9 @@ class InfoView(APIView):
         return Response(ser.data)
 ```
 
-### Save/Update data {#saveupdate-data heading="4"}
+### Save/Update data
 
-### save()/ update() method {#save-update-method heading="4" collapsed="true"}
+### save()/ update() method
 
 ``` python
 serializer = CommentModelSerializer(data=data)
@@ -737,13 +737,13 @@ serializer.validated_data.pop('confirm_password') # there are filed should not s
 models.Comment.objects.create(**serializer .validate_data)
 ```
 
-### In save(), you can add additional fields {#in-save-you-can-add-additional-fields heading="4" collapsed="true"}
+### In save(), you can add additional fields
 
 ``` python
 serializer.save(updated = datetime.now(), updated_by = request.user )
 ```
 
-### Foreign key and many to many {#foreign-key-and-many-to-many heading="4" collapsed="true"}
+### Foreign key and many to many
 
 1.  When validate/save foriegn key, DRF will check if the key is valid
     or not
@@ -784,13 +784,13 @@ serializer.save(updated = datetime.now(), updated_by = request.user )
 
 ## Under the hood
 
-### ![](../assets/image-20210823235752483_1696691331872_0.jpg) {#section-7}
+### ![](../assets/image-20210823235752483_1696691331872_0.jpg)
 
-### ![](../assets/image-20210824001814091_1696723163568_0.jpg) {#section-8}
+### ![](../assets/image-20210824001814091_1696723163568_0.jpg)
 
-### ![](../assets/image-20210824001844381_1696723308136_0.jpg) {#section-9}
+### ![](../assets/image-20210824001844381_1696723308136_0.jpg)
 
-# Validator {#validator heading="2" desc="validation logic into reusable component, DRF validation is performed entirely on the serializer class."}
+# Validator
 
 ## Samples
 
@@ -804,7 +804,7 @@ class CustomerReportModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerReportRecord
 
-#This works as well        
+#This works as well
 class CustomerReportSerializer(serializers.Serializer):
     reference = serializers.CharField(required=True, max_length=20, min_length=4)
     description = serializers.CharField(required=True, max_length=20)
@@ -845,7 +845,7 @@ class BillingRecordSerializer(serializers.ModelSerializer):
 
 ``` python
 class CustomerReportSerializer(serializers.Serializer):
-    def validate_phone(self, value): # validate {'phone': '02233221123', ...}
+    def validate_phone(self, value): # validate
       if len(value) < 10:
         raise exception.ValidationError("incorrect phone number length")
       return value
