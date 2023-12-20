@@ -1,7 +1,13 @@
 ---
 alias: DRF
-language: python
-tags: rest, drf, django, python
+layout: post
+title: "django restful framework"
+auther: "Ray"
+tags:
+    - rest
+    - drf
+    - django
+    - python
 url: "\\[\\[https://github.com/encode/django-rest-framework\\]\\[GitHub -
   encode/django-rest-framework: Web APIs for Django. 🎸\\]\\]"
 ---

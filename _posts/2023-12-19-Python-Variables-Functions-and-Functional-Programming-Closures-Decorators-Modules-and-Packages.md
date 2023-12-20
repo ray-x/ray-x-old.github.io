@@ -2,10 +2,13 @@
 course-repo: "https://github.com/fbaptiste/python-deepdive"
 institute: udemy
 instructor: "Dr. Fred Baptiste https://www.udemy.com/user/fredbaptiste/"
-language: python
-start-date: \[\[Sep 16th, 2023\]\]
-tags: Python, deep-dive
-type: programming
+layout: post
+title: "Whats new in python 3.10"
+author: "Ray"
+header-style: text
+tags:
+    - backend
+    - python
 ---
 
 # [Python+Deep+Dive+1.pdf](../assets/Python+Deep+Dive+1_1694868717879_0.pdf) {#pythondeepdive1.pdf heading="3"}

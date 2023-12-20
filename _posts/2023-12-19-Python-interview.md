@@ -1,6 +1,11 @@
 ---
-language: python
-tags: interview, python, tricks
+layout: post
+title: "Python Fundamental"
+author: "Ray"
+header-style: text
+tags:
+    - backend
+    - python
 ---
 
 # string.strip() #card

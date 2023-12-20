@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Fast API"
+author: "Ray"
+header-style: text
+tags:
+    - python
+    - FastAPI
+
+---
 # install
 
 ## github setup, it depends rust and might need this:

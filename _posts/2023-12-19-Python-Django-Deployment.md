@@ -1,5 +1,11 @@
 ---
-tags: \[\[ci/cd\]\], python, \[\[devops\]\], \[\[aws\]\]
+layout: post
+author: "Ray"
+header-style: text
+tags:
+  - python
+  - django
+  - CICD
 ---
 
 # Normally there are following way to deploy python service

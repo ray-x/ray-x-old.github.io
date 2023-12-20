@@ -1,6 +1,14 @@
 ---
-language: python
-tags: python, generator, iterator, metaclass, metagrogramming
+layout: post
+title: "Python Fundamental"
+author: "Ray"
+header-style: text
+tags:
+  - python
+  - generator
+  - iterator
+  - metaclass
+  - metagrogramming
 ---
 
 # [Python+Deep+Dive+4.pdf](../assets/Python+Deep+Dive+4_1696669164886_0.pdf)
@@ -37,7 +45,7 @@ tags: python, generator, iterator, metaclass, metagrogramming
 
 ``` python
 class Color(Enum):
-  red = 1 
+  red = 1
   crimson = 1
   carmine = 1
   blue = 2

@@ -1,5 +1,14 @@
 ---
 alias: django
+layout: post
+title: "Django"
+author: "Ray"
+header-style: text
+tags:
+    - django
+    - backend
+    - python
+    - DRF
 ---
 
 # Open source projects

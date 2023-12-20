@@ -1,8 +1,13 @@
 ---
-language: python
-tags: python
-url: "\\[\\[https://github.com/fbaptiste/python-deepdive/tree/main/Part%201/Section%2010%20-%20Python.%20Updates\\]\\[Github
-  Python updates\\]\\]"
+layout: post
+title: "Whats new in python 3.10"
+author: "Ray"
+header-style: text
+tags:
+    - django
+    - backend
+    - python
+    - DRF
 ---
 
 # Python 3.10
@@ -48,7 +53,7 @@ s2 = {'c', 'd'}
 s1 | s2 #[[{'a', 'b', 'c', 'd'}]]
 
 d1 = {'c': 3, 'a': 1, 'b': 2}
-d2 = {'d': 40, 'c': 30} 
+d2 = {'d': 40, 'c': 30}
 d1 | d2  # {'c': 3, 'd': 40, 'a': 1, 'b': 2}
 
 ```

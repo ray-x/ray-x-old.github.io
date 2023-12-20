@@ -1,6 +1,11 @@
 ---
-language: python
-tags: python, generator, iterator
+layout: post
+author: "Ray"
+header-style: text
+tags:
+  - python
+  - generator
+  - iterator
 ---
 
 # [Python+Deep+Dive+2.pdf](../assets/Python+Deep+Dive+2_1696586942514_0.pdf)

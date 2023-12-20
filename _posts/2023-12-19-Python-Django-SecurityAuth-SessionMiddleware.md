@@ -1,9 +1,14 @@
 ---
-language: python
+layout: post
+title: "Session Middleware of DRF"
+author: "Ray"
+header-style: text
 tags:
     - django
     - backend
     - python
+    - DRF
+
 ---
 
 # Login, session and cookie

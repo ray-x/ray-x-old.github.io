@@ -1,7 +1,11 @@
 ---
-language: python
-tags: leetcode, DSA
-type: programming
+layout: post
+title: "Python Fundamental"
+author: "Ray"
+header-style: text
+tags:
+    - backend
+    - python
 ---
 
 # Fundamental of Python, a Jump start
@@ -133,10 +137,10 @@ ls = [x for x in list(ls) if x not in to_remove]
 
     ``` python
     list(map(str.upper,  ['alfred', 'tabitha', 'william', 'arla']))
-    list(map(round,  [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013], range(1, 7)))  
+    list(map(round,  [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013], range(1, 7)))
     # 3rd parameter is parameter to round
     list(map(lambda x, y: (x, y), ['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]))
-    list(map(lambda x, y, z: (x+y)*z, [1, 2, 3, 4, 5], [10, 20, 30, 40, 50], [1, 2, 3, 4, 5])) 
+    list(map(lambda x, y, z: (x+y)*z, [1, 2, 3, 4, 5], [10, 20, 30, 40, 50], [1, 2, 3, 4, 5]))
     #[11, 44, 99, 176, 275]
     ```
 
@@ -293,7 +297,7 @@ my_color = Color.RED
 ## python {#python-10}
 
 ``` python
-from typing import Final 
+from typing import Final
 
 PI: Final =  3.14
 

@@ -1,6 +1,14 @@
 ---
-language: python
-tags: python, django, framework, mvc, \[\[web framework\]\], backend
+layout: post
+title: "Template and Form of DRF"
+author: "Ray"
+header-style: text
+tags:
+    - django
+    - backend
+    - python
+    - DRF
+
 ---
 
 # reference
