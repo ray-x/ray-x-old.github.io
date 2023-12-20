@@ -83,7 +83,6 @@ def my_view(request):
 # Login HTML
 
 
-``` django
 <div class="account">
     <h2>用户登录</h2>
     <div class="panel-body">
@@ -105,7 +104,6 @@ def my_view(request):
     </div>
 </div>
 
-```
 
 
 # Login Form
