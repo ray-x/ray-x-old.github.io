@@ -1,5 +1,4 @@
 ---
-layout: post
 language: python
 tags:
     - django
@@ -48,7 +47,145 @@ def my_view(request):
         return render(request, "a_template.html", {})
 ```
 
+## `requires_csrf_token(view)`
 
+### Normally the [csrf~token~](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#std-templatetag-csrf_token) template tag will not work if CsrfViewMiddleware.process~view~ or an equivalent like csrf~protect~ has not run. The view decorator \~requires~csrftoken~\~ can be used to ensure the template tag does work.
+
+# Session
+
+## [django session](../assets/Django-Session_1696546798398_0.jpg)
+
+## [session](../assets/django_login_auth.png)
+
+## Default session setup
+
+### setting.py
+```python
+    SESSION_ENGINE = 'django.contrib.sessions.backends.db' # 引擎（默认）
+    # use 'django.contrib.sessions.backends.cached_db' for high traffic
+    SESSION_COOKIE_NAME ＝ "sessionid" # Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符串（默认）
+    SESSION_COOKIE_PATH ＝ "/" # Session的cookie保存的路径（默认）
+    SESSION_COOKIE_DOMAIN = None # Session的cookie保存的域名（默认）
+    SESSION_COOKIE_SECURE = False # 是否Https传输cookie（默认）
+    SESSION_COOKIE_HTTPONLY = True # 是否Session的cookie只支持http传输（默认）
+    SESSION_COOKIE_AGE = 1209600 # Session的cookie失效日期（2周）（默认）
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = False # 是否关闭浏览器使得Session过期（默认）
+    SESSION_SAVE_EVERY_REQUEST = False # 是否每次请求都保存Session，默认修改之后才保存（默认）
+```
+
+## Cookie
+
+    request.COOKIES[key]
+    request.COOKIES.get(key)
+    # 普通cookie是明文传输的，可以直接在客户端直接打开，所以需要加盐，解盐之后才能查看
+    request.get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
+
+# Login HTML
+
+
+``` django
+<div class="account">
+    <h2>用户登录</h2>
+    <div class="panel-body">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label>用户名</label>
+                {{ form.username }}
+                <span style="color: red;">{{ form.errors.username.0 }}</span>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                {{ form.password }}
+                <span style="color: red;">{{ form.errors.password.0 }}</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary center-block" style="width: 80px;">登录</button>
+        </form>
+    </div>
+</div>
+
+```
+
+
+# Login Form
+
+``` python
+from django.shortcuts import render, HttpResponse
+from django import forms
+from employee_management.utils.modelform import BootStrapForm
+from employee_management.utils.encrypt import md5
+from employee_management.models import Admin
+
+# 使用Form来实现
+class LoginForm(BootStrapForm):
+    username = forms.CharField(
+        label="用户名",
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+        required=True,
+    )
+    password = forms.CharField(
+        label="用户名",
+        # render_value=True 表示当提交后,如果密码输入错误,不会自动清空密码输入框的内容
+        widget=forms.PasswordInput(attrs={"class": "form-control"}, ),
+        required=True,
+    )
+
+    def clean_password(self):
+        pwd = self.cleaned_data.get("password")
+        return md5(pwd)
+def login(request):
+    """登录"""
+    if request.method == "GET":
+        form = LoginForm()
+        return render(request, 'login.html', {"form": form})
+
+    form = LoginForm(data=request.POST)
+    if form.is_valid():
+        # 验证成功, 获取到的用户名和密码
+        # print(form.cleaned_data)
+        # {'username': '123', 'password': '123'}
+        # {'username': '456', 'password': '0f54af32f41a5ba8ef3a2d40cd6ccf25'}
+
+        # 去数据库校验用户名和密码是否正确
+        admin_object = Admin.objects.filter(**form.cleaned_data).first()
+        if not admin_object:
+            form.add_error("password", "用户名或密码错误")
+            return render(request, 'login.html', {"form": form})
+
+        # 如果用户名密码正确
+        # 网站生成随机字符创,写到用户浏览器的cookie中,再写入到服务器的session中
+        request.session["info"] = {'id': admin_object.id, 'name': admin_object.username}
+        return redirect("/admin/list/")
+
+    return render(request, 'login.html', {"form": form})
+
+```
+
+# Session storage {#session-storage collapsed="true"}
+
+## The request object has a session attribute, and when the server executes the code, the session middleware and the session's application operate together seamlessly. When you first store data in a session, Django saves the data server-side and associates it with a unique session ID. The server-side session data (object) is created when you store any data in the session and is saved either at the end of the request or when you explicitly call. The `sessionid` cookie is created client-side when you first store any data in the session.
+
+``` sql
+mysql> select * from django_session;
++----------------------------------+-------------------------------------------------------------------------------------------------+----------------------------+
+| session_key                      | session_data                                                                                    | expire_date                |
++----------------------------------+-------------------------------------------------------------------------------------------------+----------------------------+
+| zkgq26t7hqx3yu6xo04bws856002n5aj | eyJpbmZvIjp7ImlkIjoxMiwibmFtZSI6InRva2VyIn19:1pElim:Tus2mHaJUTNTfzhppuah8N0FVdLXQxyvRk_4n-4fP6g | 2023-01-23 06:33:24.373104 |
++----------------------------------+-------------------------------------------------------------------------------------------------+----------------------------+
+``` sql
+
+mysql\> select \* from django~session~;
+
+  ---------------------------------- -------------------------------------------------------------------------------------------------- -----------------
+  session~key~                       session~data~                                                                                      expire~date~
+
+  zkgq26t7hqx3yu6xo04bws856002n5aj   eyJpbmZvIjp7ImlkIjoxMiwibmFtZSI6InRva2VyIn19:1pElim:Tus2mHaJUTNTfzhppuah8N0FVdLXQxyvRk~4n~-4fP6g   2023-01-23
+                                                                                                                                        06:33:24.373104
+  ---------------------------------- -------------------------------------------------------------------------------------------------- -----------------
+
+
+```
 # Django Middleware
 
 ## Class with `process_request` Input middleware
