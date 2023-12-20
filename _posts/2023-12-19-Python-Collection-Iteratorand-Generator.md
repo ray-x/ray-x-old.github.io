@@ -1,6 +1,7 @@
 ---
 layout: post
 author: "Ray"
+title: "Python: List, yield and operators"
 header-style: text
 tags:
   - python

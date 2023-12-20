@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Fundamental"
+title: "Python MetaProgramming"
 author: "Ray"
 header-style: text
 tags:
@@ -13,7 +13,7 @@ tags:
 
 # [Python+Deep+Dive+4.pdf](../assets/Python+Deep+Dive+4_1696669164886_0.pdf)
 
-# Properties {#properties heading="2"}
+# Properties
 
 ## In many languages direct access to attributes is highly discouraged Instead the convention is to make the attribute private, and create public getter and setter methods
 
@@ -23,7 +23,7 @@ tags:
 
 ### ((65212021-413d-4bcd-a1c1-81a964e79a45))
 
-## property decorator `@property` {#property-decorator-property heading="3"}
+## property decorator `@property`
 
 ### ((652120be-a7ed-40a4-9429-a7b7c1d4eb95))
 
@@ -31,7 +31,7 @@ tags:
 
 ### ((6521213b-5183-4825-bca2-9dec4e4565c2))
 
-# Class Scope {#class-scope heading="2" collapsed="true"}
+# Class Scope
 
 ## ((652121ac-37ec-428c-90ba-8a4dd4b79ac0))
 
@@ -39,7 +39,7 @@ tags:
 
 \*\*
 
-# Enumerators And Alias {#enumerators-and-alias heading="2"}
+# Enumerators And Alias
 
 ## Enum class
 
@@ -56,9 +56,9 @@ class Color(Enum):
 
 ### `enum.auto()` generate a auto values for enum
 
-# MetaProgramming {#metaprogramming heading="2"}
+# MetaProgramming
 
-## `type` {#type heading="3"}
+## `type`
 
 ### `type` is a **class**
 
@@ -77,7 +77,7 @@ class type:
 
 ### `type` allow you create new class programmly
 
-## Metaclass {#metaclass heading="3"}
+## Metaclass
 
 ### The class used to create a class, is called **metaclass** of that class, e.g. `MyType` is metaclass of `Person`
 
