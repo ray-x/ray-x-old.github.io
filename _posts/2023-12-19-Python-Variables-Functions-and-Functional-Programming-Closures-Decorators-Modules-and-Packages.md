@@ -3,7 +3,7 @@ course-repo: "https://github.com/fbaptiste/python-deepdive"
 institute: udemy
 instructor: "Dr. Fred Baptiste https://www.udemy.com/user/fredbaptiste/"
 layout: post
-title: "Whats new in python 3.10"
+title: "Python fundamental: Closures, ternery, function, operator, number"
 author: "Ray"
 header-style: text
 tags:
@@ -1418,20 +1418,4 @@ Point1D = namedtuple('Point2D', fields)
 
     `your_obj.__code__.co_consts` **\*\***
 
-#  [[PROPERTIES]{.smallcaps}]{.tag tag-name="PROPERTIES"} {#section-3}
 
-:query-table: false
-
-::: {.END .drawer}
-::: QUERY
-{:title \[:b \"Page items\"\] :query \[:find (pull ?b \[\*\]) :in \$
-?parent % :where \[?p :block/name \"javascript\"\] ;lower-case page name
-\[?b :block/refs ?p\] (check-parent ?b ?parent) \] :rules \[
-\[(check-parent ?b ?parent) \[?b :block/parent ?parent\] \]
-\[(check-parent ?b ?parent) \[?b :block/parent ?c\] (check-parent ?c
-?parent) \] \] :group-by-page? false :breadcrumb-show? false :inputs
-\[:parent-block\] }
-:::
-:::
-
-\* \*
