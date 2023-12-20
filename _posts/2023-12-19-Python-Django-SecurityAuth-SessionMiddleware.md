@@ -88,7 +88,6 @@ def my_view(request):
     <h2>用户登录</h2>
     <div class="panel-body">
         <form method="post" novalidate>
-            {% csrf_token %}
             <div class="form-group">
                 <label>用户名</label>
                 {{ form.username }}
