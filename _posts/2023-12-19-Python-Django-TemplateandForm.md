@@ -80,7 +80,7 @@ python manage.py startapp [app name]
     default, \~urls.py\~ comes with the URL pattern for the admin panel.
     You will create other endpoints for your web app in this file.
 
-### Inside your APP {#inside-your-app heading="4"}
+### Inside your APP
 
 1.  admin.py
 
@@ -231,7 +231,7 @@ xx)
 2.  `on_delete` should be specified. Normally `CASCADE`, can also be
     `SET_NULL` if it is nullable
 
-### AutoJoin {#autojoin heading="4" collapsed="true"}
+### AutoJoin
 
 1.  Instead of join two table to get info from 2nd table like this
 
@@ -249,7 +249,7 @@ xx)
     print(user.depart.name)
     ```
 
-## enum with `choices` {#enum-with-choices heading="3" collapsed="true"}
+## enum with `choices`
 
 ### define with `{field_name}_choices`
 
@@ -268,9 +268,9 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 
 **\*** **\***
 
-## `filter()` with magic naming {#filter-with-magic-naming heading="3" collapsed="true"}
+## `filter()` with magic naming
 
-### filter with field and value (field name : myid in all examples ) `filter(myid ="value")`
+### filter with field and value (field name : myid in all examples )
 
 ### Number filter
 
@@ -289,7 +289,7 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 
 # Django Template {#django-template tags="django, template, jinja" desc="" url="[[https://docs.djangoproject.com/en/4.2/ref/templates/language/][django template DTL]]" heading="2" collapsed="true"}
 
-## Abstract {#abstract heading="3"}
+## Abstract
 
 ### A template is a text file. It can generate any text-based format (HTML, XML, CSV, etc.).
 
@@ -315,7 +315,7 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 ::: {.END .drawer}
 :::
 
-### Cheatsheet {#cheatsheet desc="django template cheatsheet"}
+### Cheatsheet
 
 ``` python
 render(request, 'template_file.html', {"var1": value, "var2", value})
@@ -375,7 +375,7 @@ Loop and condition
 ### syntax
 
 ``` html
-{% extends 'template_name.html' %} 
+{% extends 'template_name.html' %}
 
 # examples
 {% extends "./base2.html" %}
@@ -440,20 +440,20 @@ Should be write as
 ### index.html
 
 ``` django
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Title</title>  
-</head>  
-<body>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
 
-{% include 'top.html' with mycss="acss" %}  
+{% include 'top.html' with mycss="acss" %}
 
-<h2> 网页body部分 </h2>  
+<h2> 网页body部分 </h2>
 
-</body>  
-</html>  
+</body>
+</html>
 ```
 
 ### include passing multiple values
@@ -472,7 +472,7 @@ And with django variables from python codes
 {% endblock %}
 ```
 
-# Form {#form heading="2"}
+# Form
 
 ## Django's form functionality can simplify and automate vast portions of this work, and can also do it more securely than most programmers would be able to do in code they wrote themselves.
 
@@ -545,7 +545,7 @@ def home_view(request):
 4.  [`{{ form.as_ul }}`](https://www.geeksforgeeks.org/form-as_ul-render-django-forms-as-list/) will
     render them wrapped in \<li\> tags
 
-### Template: {#template collapsed="true"}
+### Template:
 
 There are a few ways to present form objects
 
@@ -609,7 +609,7 @@ class RenewBookForm(forms.Form):
 
 ```
 
-## Django Form from Models {#django-form-from-models alias="ModelForm" id="651cfa1b-ce5c-486b-8f45-5f3cee8f113e"}
+## Django Form from Models
 
 ### If the form is coupled with database table, it is easy to use ModelForm
 
@@ -653,7 +653,7 @@ class RenewBookForm(forms.Form):
 
         ``` python
         from django import forms
-        from .models import Movie 
+        from .models import Movie
 
         class MovieForm(forms.ModelForm):
             class Meta:
@@ -665,7 +665,7 @@ class RenewBookForm(forms.Form):
 
     ``` python
     from django import forms
-    from .models import Movie 
+    from .models import Movie
 
 
     # Create your forms here.
@@ -784,7 +784,7 @@ class RenewBookForm(forms.Form):
                         field.widget = forms.widgets.PasswordInput(attrs={"class": style})
             class Meta:
                 model = UserInfo
-                fields = "__all__" 
+                fields = "__all__"
         ```
 
     2.  `render_values` allow pre-fill values
@@ -910,7 +910,7 @@ return render(request, 'list.html', {"queryset": qs, "page_list": page_string})
 </form>
 ```
 
-# FBV and CBV {#fbv-and-cbv type="terminology" id="651210f8-a2fe-4194-9216-f1eefdded8a6" heading="2" collapsed="true"}
+# FBV and CBV
 
 ## FBV: Function based View
 
@@ -995,7 +995,7 @@ use](https://miro.medium.com/v2/resize:fit:1400/1*1NgVsYmmLCiwXUy-uE0VLA.jpeg)
 
 ### If it is single method (e.g. Get only) use FBV otherwise CBV
 
-## Recites {#recites heading="3"}
+## Recites
 
 ### :HOWTO-RECITE:
 
@@ -1007,36 +1007,9 @@ indicated by the cue-words.
 ::: {.END .drawer}
 :::
 
-## {{cards [*Python/Django*]{.spurious-link target="Python/Django"}}}
 
-### Summary: 2 items, 2 review counts [*Oct 5th, 2023*]{.spurious-link target="Oct 5th, 2023"}
+### Summary: 2 items, 2 review counts [*Oct 5th, 2023*]
 
 1.  Remembered: 0 (0%)
 
 2.  Forgotten : 2 (100%)
-
-## {{cards (property tags python) }}
-
-## {{cards [*Python*]{.spurious-link target="Python"} }}
-
-## {{cards (property tags #python) ) }}
-
-## `{{query (and (cards) (or (priority B) (priority A)) (not [[read]])))}}`
-
-## `{{query (property :language "Python ")}}`
-
-\*
-
-# Query
-
-::: QUERY
-{ :title \[:h2 \"Cards with #django\"\] :query \[:find (pull ?b \[\*\])
-:in \$ ?tag ?key :where \[?b :block/page ?p\] \[?b :block/content ?c\] ;
-(page-property ?p :language \"python\") (page-tags ?p #{\"django\"})
-\[(clojure.string/includes? ?c ?key)\] \] :inputs \[\"django\"
-\"#card\"\] }
-:::
-
-# `{{query (page-tags [[django]]) }}`
-
-\*
