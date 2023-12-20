@@ -3,15 +3,15 @@ language: python
 tags: python, django, framework, mvc, \[\[web framework\]\], backend
 ---
 
-# reference {#reference heading="1"}
+# reference
 
-## Django REST API {#django-rest-api heading="2" institute="udemy" desc="Create an advanced REST API with Python, Django REST Framework and Docker using Test Driven Development (TDD)" tags="REST" instructor="[[https://www.udemy.com/user/mark-winterbottom/][Mark Winterbottom | Full-Stack Software Engineer]]" course-repo="" start-date="[[Sep 25th, 2023]]"}
+## Django REST API
 
 ### \| Udemy\]\]
 
-# KickStart {#kickstart heading="2"}
+# KickStart
 
-## manage.py command line {#manage.py-command-line heading="4" collapsed="true"}
+## manage.py command line
 
 ### runserver
 
@@ -31,9 +31,9 @@ tags: python, django, framework, mvc, \[\[web framework\]\], backend
 
 ### help
 
-## /admin URL for admin user {#admin-url-for-admin-user heading="4"}
+## /admin URL for admin user
 
-## A django APP {#a-django-app heading="4" collapsed="true"}
+## A django APP
 
 ### An app in a Django project is a Python package that does a particular job. A Django project contains one or more apps and each of them handles a particular task. For example, a Django blog website will have a list of posts, user authentication, user profiles, etc. The best practice is to create different apps for each one of them.
 
@@ -45,7 +45,7 @@ tags: python, django, framework, mvc, \[\[web framework\]\], backend
 python manage.py startapp [app name]
 ```
 
-## Project structure {#project-structure heading="4" reference="[[https://plainenglish.io/blog/how-to-structure-your-django-project-a5d50333a644][How to Structure Your Django Project]]" collapsed="true"}
+## Project structure
 
 ### [project structure](https://miro.medium.com/max/700/1*aICZBUzrgLgc5GoWuiFHcw.jpeg)
 
@@ -174,7 +174,7 @@ python manage.py startapp [app name]
         To work with forms in an app you need to create the `forms.py`
         file in that app. Here you will write the codes to handle forms.
 
-## Request and response [Request & Response 4.2](https://docs.djangoproject.com/en/4.2/ref/request-response/) {#request-and-response-request-response-4.2 heading="4" collapsed="true"}
+## Request and response [Request & Response 4.2](https://docs.djangoproject.com/en/4.2/ref/request-response/)
 
 ### Requests
 
@@ -195,9 +195,9 @@ python manage.py startapp [app name]
 
 1.  HttpResponse; render; redirect
 
-# Models {#models heading="2" collapsed="true"}
+# Models
 
-## Default and AutoField {#default-and-autofield heading="4" collapsed="true"}
+## Default and AutoField
 
 ### BigAutoField(64bit) and AutoField
 
@@ -210,9 +210,9 @@ default_auto_field = "django.db.models.BigAutoField"
 1.  if default~autofield~ present, each table will have `id` and you do
     not need to define aut-inc auto field
 
-## ForeignKey and auto join {#foreignkey-and-auto-join heading="4" id="651b71c9-7e23-4638-a89c-240b474388a8" collapsed="true"}
+## ForeignKey and auto join
 
-### define a foreigh key relationship #card {#define-a-foreigh-key-relationship-card card-last-interval="-1" card-repeats="1" card-ease-factor="2.5" card-next-schedule="2023-10-05T13:00:00.000Z" card-last-reviewed="2023-10-04T22:20:53.096Z" card-last-score="1"}
+### define a foreigh key relationship #card
 
 ``` python
 depart = models.ForeignKey(
@@ -260,7 +260,7 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 
 ### when retrieve gender value, it will be 1/2. But it can be display nicely with #magic method `models.get_{field_name}_display()` e.g. `get_gender_display()` will show `Male|Female`
 
-## `order_by()` {#order_by heading="3" collapsed="true"}
+## `order_by()`
 
 ### `order_by("field_name")`
 
@@ -283,11 +283,11 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 
 ### Multi field filter : `filter(myid_gte=12, mytext_contains="123")`
 
-## pagination {#pagination heading="2"}
+## pagination
 
 **\***
 
-# Django Template {#django-template tags="django, template, jinja" desc="" url="[[https://docs.djangoproject.com/en/4.2/ref/templates/language/][django template DTL]]" heading="2" collapsed="true"}
+# Django Template
 
 ## Abstract
 
@@ -295,7 +295,7 @@ gender = models.SmallIntegerField(choices=gender_choices,default=1)
 
 ### A template contains \*variables\*, which get replaced with values when the template is evaluated, and \*tags\*, which control the logic of the template.
 
-## ----- {#section-1}
+## -----
 
 ### :main-idea-checkbox:
 
@@ -406,7 +406,7 @@ Loop and condition
 
 3.  block can extends anything, e.g css reference, js code blocks etc
 
-## pipe operator `|` and filter {#pipe-operator-and-filter id="651c1c60-a6bd-47c4-9b9a-889f3d41cf5f"}
+## pipe operator `|` and filter
 
 ### In Django template language, the pipe character `|` is used to apply filters to variables. Filters are used to format variables or perform some operation on them before they are rendered in the template.
 
@@ -476,7 +476,7 @@ And with django variables from python codes
 
 ## Django's form functionality can simplify and automate vast portions of this work, and can also do it more securely than most programmers would be able to do in code they wrote themselves.
 
-### Django handles three distinct parts of the work involved in forms: {#django-handles-three-distinct-parts-of-the-work-involved-in-forms collapsed="true"}
+### Django handles three distinct parts of the work involved in forms:
 
 ### preparing and restructuring data to make it ready for rendering
 
@@ -584,7 +584,7 @@ There are a few ways to present form objects
 
 ## Validate a form object
 
-### The easiest way to validate a single field is to override the method `clean_<fieldname>()` for the field you want to check. e.g. Validate `renewal_date` field {#the-easiest-way-to-validate-a-single-field-is-to-override-the-method-clean_fieldname-for-the-field-you-want-to-check.-e.g.-validate-renewal_date-field collapsed="true"}
+### The easiest way to validate a single field is to override the method `clean_<fieldname>()` for the field you want to check. e.g. Validate `renewal_date` field
 
 ``` python
 import datetime
@@ -742,7 +742,7 @@ class RenewBookForm(forms.Form):
                     field.widget = forms.widgets.PasswordInput(attrs={"class": style})
         class Meta:
             model = UserInfo
-            fields = "__all__" # It can be a list of all fields you want to display {"name", "age"}
+            fields = "__all__" # It can be a list of all fields you want to display
          # password field can also be setup here
          # password = forms.CharField(required=False, widget=forms.PasswordInput()) # some field need special attention
          # can also  be put here
@@ -811,7 +811,7 @@ class Department(models.Model):
 So that when adding user\'s department in the dropdown, it will show the
 `title` instead of \"Python Object\"
 
-### Create a ModelForm object #card {#create-a-modelform-object-card card-last-score="1" card-repeats="1" card-next-schedule="2023-10-05T13:00:00.000Z" card-last-interval="-1" card-ease-factor="2.5" card-last-reviewed="2023-10-04T22:20:54.846Z"}
+### Create a ModelForm object #card
 
 1.  an empyt object (create a new entry) `form = UserModelForm()`
 
@@ -843,7 +843,7 @@ So that when adding user\'s department in the dropdown, it will show the
 
 **\*\***
 
-# Pagination {#pagination-1 heading="2" collapsed="true"}
+# Pagination
 
 ## with python slicing `[start:end]`
 
@@ -914,7 +914,7 @@ return render(request, 'list.html', {"queryset": qs, "page_list": page_string})
 
 ## FBV: Function based View
 
-### sample {#sample-3}
+### sample
 
 ``` python
 def my_create_view(request, pk):
@@ -953,7 +953,7 @@ def my_create_view(request, pk):
 
 2.  decorators require extra override
 
-### sample {#sample-4}
+### sample
 
 ``` python
 class MyCreateView(View):
@@ -994,22 +994,3 @@ urlpatterns = [
 use](https://miro.medium.com/v2/resize:fit:1400/1*1NgVsYmmLCiwXUy-uE0VLA.jpeg)
 
 ### If it is single method (e.g. Get only) use FBV otherwise CBV
-
-## Recites
-
-### :HOWTO-RECITE:
-
-Cover the notetaking column with a sheet of paper.  Then, looking at the
-questions or cue-words in the question and cue column only, say aloud,
-in your own words, the answers to the questions, facts, or ideas
-indicated by the cue-words.
-
-::: {.END .drawer}
-:::
-
-
-### Summary: 2 items, 2 review counts [*Oct 5th, 2023*]
-
-1.  Remembered: 0 (0%)
-
-2.  Forgotten : 2 (100%)
