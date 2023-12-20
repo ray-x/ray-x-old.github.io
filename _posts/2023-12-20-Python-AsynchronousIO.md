@@ -1,8 +1,12 @@
 ---
+layout: post
 alias: asyncio
-language: python
-tags: python, asyncio, coroutine
-term: async, await
+author: "Ray"
+header-style: text
+tags:
+  - python
+  - asyncio
+  - coroutine
 ---
 
 # History
