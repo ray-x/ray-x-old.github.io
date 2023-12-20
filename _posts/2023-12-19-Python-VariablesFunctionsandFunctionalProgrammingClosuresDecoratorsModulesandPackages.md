@@ -26,7 +26,7 @@ print('Initializing a list using the\
  Implicit multi-line statement', list)
 g = """geeks
 for
-geeks""" 
+geeks"""
 # Initializing a mathematical expression
 # using the Implicit multi-line statement.
 add = (50 +
@@ -66,7 +66,7 @@ if a \
 for x in range(2):
   try:
       print('trying...')
-      continue   #break 
+      continue   #break
       print('still trying...')
   except:
       print('Something went wrong.')
@@ -181,7 +181,7 @@ print('Loop ended.')
 ``` python
 a=[1, 2]
 b=a #reference
-c=[1, 2]  #does not share with a/[1,2] 
+c=[1, 2]  #does not share with a/[1,2]
 ```
 
 ### Python pr-create values \[-5, 256\] so if value in that range, it will share reference
@@ -314,7 +314,7 @@ floor(-3.3) -> -4
     decimal.getcontext().prec = 2
     pi = Decimal('3.14159')
     print( pi * radius * radius )
-    pi = Decimal(sign, (d1, d2, d3, ...), exp) 
+    pi = Decimal(sign, (d1, d2, d3, ...), exp)
     pi = Decimal (0, (3, 1, 3, 1, 5), 4)
 
     10.0 == Decimal('10.0')  # .0 will be use
@@ -691,8 +691,6 @@ floor(-3.3) -> -4
 
 ### callable {#callable heading="3" descr="" tags="[[functional programming]]"}
 
-1.  {{cloze a object like (but not **limited to**) []{#functions}and
-    []{#methods}}}
 
 2.  `callable()` check if a object is callable
 
