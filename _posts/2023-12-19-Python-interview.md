@@ -8,13 +8,31 @@ tags:
     - python
 ---
 
-# string.strip() #card
+<details>
+  <summary><h2>string.strip()</h2></summary>
+  
+  ### Usage
+  1. remove all empty
+  2. it allows arguments e.g. \'abbabbacdef\'.strip(\'ab\'). it remove both `a` and `b` (the sequence does not matter)
 
-## remove all empty
+  ### exampls
+  ```python
+  string.strip("   aaa \n ")
+  ```
+</details>
 
-## it allows arugments e.g. \'abbabbacdef\'.strip(\'ab\'). it remove both `a` and `b` (the sequence does not matter)
 
-# calculate total of 1\~100 #card
+<details>
+  <summary><h2>calculate total of 1\~100 #card</h2></summary>
+  
+  ### Usage
+    1. sum and range
+  ### exampls
+  ```python
+  sum(range(1, 100))
+  ```
+</details>
+
 
 ## sum(range(1, 100))
 
