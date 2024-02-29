@@ -7,7 +7,6 @@ tags:
 term:
   - asyncio queues are designed to be similar to classes of the [queue](https://docs.python.org/3/library/queue.html#module-queue) module. Although asyncio queues are not thread-safe
   - they are designed to be used specifically in async/await code.
-language: python
 desc:
   - Each event loop contains a number of tasks
   - and every coroutine that is executing is doing so inside a task.
@@ -15,15 +14,15 @@ id: 6512ae22-02c0-42c1-bb30-97094aae783d
 constructor: asyncio
 def: asyncio.Queue(maxsize=0)
 ---
-    
-- History  
-	- greenlet  
-	- yield  
-	- python3.4 asyncio  
-		- `yield from asyncio.sleep(1)`  `yield` allow switch to other coroutines if blocked on IO  
-	- python3.5 (async, await), 3.7(run)  
-		- await, async  
-		    
+
+- History
+	- greenlet
+	- yield
+	- python3.4 asyncio
+		- `yield from asyncio.sleep(1)`  `yield` allow switch to other coroutines if blocked on IO
+	- python3.5 (async, await), 3.7(run)
+		- await, async
+
 		  ``` python
 		  import asyncio
 
@@ -34,21 +33,21 @@ def: asyncio.Queue(maxsize=0)
 
 		  asyncio.run(main())
 		  ```
-	- python 3.7 Task  
-	- python 3.11 TaskGroup  
-- Asynchronous Programming  
-	- event loop  
-	    
+	- python 3.7 Task
+	- python 3.11 TaskGroup
+- Asynchronous Programming
+	- event loop
+
 	  ``` python
 	  import asyncio
 	  loop = asyncio.get_event_loop()
 	  loop.run_until_complete([task1, task2])
 	  ```
-	- Basic of coroutines  
-	- ![A diagram showing the difference between subroutine and coroutine calling](https://bbc.github.io/cloudfit-public-docs/images/asyncio/SubVsCoRoutines.png){:height 181, :width 346}  
-	- async  
-		- coroutine function and coroutine object  
-		    
+	- Basic of coroutines
+	- ![A diagram showing the difference between subroutine and coroutine calling](https://bbc.github.io/cloudfit-public-docs/images/asyncio/SubVsCoRoutines.png){:height 181, :width 346}
+	- async
+		- coroutine function and coroutine object
+
 		  ``` python
 		  async def cotask():  # a coroutine task
 		    yield from asyncio.sleep(1)
@@ -57,14 +56,14 @@ def: asyncio.Queue(maxsize=0)
 
 		  asyncio.run(cotask())  # python 3.7
 		  ```
-	- await  
-		- If Python encounters an `await f()` expression in the scope of `g()`,  `await` tells the event loop, “Suspend execution of `g()` until whatever I’m waiting on —the result of `f()` —is returned. In the meantime, go let something else run."  
-		- Waitable objects can be:  
-			- coroutine object  
-			- ((6512ae22-02c0-42c1-bb30-97094aae783d))  
-			- Task object  
-		- Two coroutines depends on each other  
-		    
+	- await
+		- If Python encounters an `await f()` expression in the scope of `g()`,  `await` tells the event loop, “Suspend execution of `g()` until whatever I’m waiting on —the result of `f()` —is returned. In the meantime, go let something else run."
+		- Waitable objects can be:
+			- coroutine object
+			- ((6512ae22-02c0-42c1-bb30-97094aae783d))
+			- Task object
+		- Two coroutines depends on each other
+
 		  ``` python
 		  import asyncio
 		  async def others()
@@ -76,11 +75,11 @@ def: asyncio.Queue(maxsize=0)
 		    await other1()
 		  asyncio.run(dep_others())
 		  ```
-	- Future  
-		- Future is an [awaitable](https://docs.python.org/3/glossary.html#term-awaitable) object. Coroutines can await on Future objects until they either have a result or an exception set, or until they are cancelled. A Future can be awaited multiple times and the result is same.  
-		- Typically Futures are used to enable low-level callback-based code (e.g. in protocols implemented using asyncio [transports](https://docs.python.org/3/library/asyncio-protocol.html#asyncio-transports-protocols)) to interoperate with high-level async/await code.  
-		- example  
-		    
+	- Future
+		- Future is an [awaitable](https://docs.python.org/3/glossary.html#term-awaitable) object. Coroutines can await on Future objects until they either have a result or an exception set, or until they are cancelled. A Future can be awaited multiple times and the result is same.
+		- Typically Futures are used to enable low-level callback-based code (e.g. in protocols implemented using asyncio [transports](https://docs.python.org/3/library/asyncio-protocol.html#asyncio-transports-protocols)) to interoperate with high-level async/await code.
+		- example
+
 		  ``` python
 		  async def main():
 		  	loop = asyncio.get_running_loop() # current evloop
@@ -88,8 +87,8 @@ def: asyncio.Queue(maxsize=0)
 		      await future # wait until future object/task finished in this case it will wait for ever
 		  asyncio.run(main())
 		  ```
-		- Set a future  
-		    
+		- Set a future
+
 		  ``` python
 		  async def set_future(future):
 		  	await asyncio.sleep(1)
@@ -102,10 +101,10 @@ def: asyncio.Queue(maxsize=0)
 		      print(data) # 666
 		  asyncio.run(main())
 		  ```
-		- concurrent.futures  
-			- The `concurrent.futures` module is part of the Python standard library starting from Python 3.2. It provides a high-level interface for asynchronously executing callable objects using threads or processes. It builds upon the concepts of threading and multiprocessing but offers a simpler, more abstracted interface.  
-			  ThreadPoolExecutor example  
-			    
+		- concurrent.futures
+			- The `concurrent.futures` module is part of the Python standard library starting from Python 3.2. It provides a high-level interface for asynchronously executing callable objects using threads or processes. It builds upon the concepts of threading and multiprocessing but offers a simpler, more abstracted interface.
+			  ThreadPoolExecutor example
+
 			  ``` python
 			  import concurrent.futures
 
@@ -133,8 +132,8 @@ def: asyncio.Queue(maxsize=0)
 			          result = future.result()
 			          print(result)
 			  ```
-			- asyncio object are not thread safe and it should not use together with multithread object. Here is a hack to convert a concurrent future to a asyncio feature  
-			    
+			- asyncio object are not thread safe and it should not use together with multithread object. Here is a hack to convert a concurrent future to a asyncio feature
+
 			  ``` python
 			  import requests  # doesnt support asyncio feature
 			  import asyncio
@@ -147,24 +146,24 @@ def: asyncio.Queue(maxsize=0)
 			  loop = asyncio.get_event_loop()
 			  loop.run_until_complete(asyncio.wait(tasks))
 			  ```
-			  reference: [Executing code in thread or process pools](https://docs.python.org/3/library/asyncio-eventloop.html#id14)  
-			- `run_in_executor`  
-				- if a io request does not support asyncio API. It can be wrapped with `run_in_executor`  
-				- Above create a task  The *executor* argument should be an [concurrent.futures.Executor](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance. The default executor is used if *executor* is None.  
-			-  
-	- Tasks  
-		- Syntax  
-		    
+			  reference: [Executing code in thread or process pools](https://docs.python.org/3/library/asyncio-eventloop.html#id14)
+			- `run_in_executor`
+				- if a io request does not support asyncio API. It can be wrapped with `run_in_executor`
+				- Above create a task  The *executor* argument should be an [concurrent.futures.Executor](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance. The default executor is used if *executor* is None.
+			-
+	- Tasks
+		- Syntax
+
 		  ``` python
 		  class asyncio.Task(coro, *, loop=None, name=None, context=None)
 		  ```
-		- Tasks are used to run/schedule coroutines in event loops. If a coroutine awaits on a ((6512ae22-02c0-42c1-bb30-97094aae783d)) , the Task suspends the execution of the coroutine and waits for the completion of the Future. When the Future is /done/, the execution of the wrapped coroutine resumes.  
-		- If a coroutine awaits on a Future, the Task suspends the execution of the coroutine and waits for the completion of the Future. When the Future is *done*, the execution of the wrapped coroutine resumes.  
-		- Event loops use cooperative scheduling: an event loop runs one Task at a time. While a Task awaits for the completion of a Future, the event loop runs other Tasks, callbacks, or performs IO operations.  
-		- Use the high-level [[https://docs.python.org/3/library/asyncio-task.html#asyncio.create_task][]] function to create Tasks, or the low-level [[https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_task][]] or [[https://docs.python.org/3/library/asyncio-future.html#asyncio.ensure_future][]] functions. Manual instantiation of Tasks is discouraged. `create_task` is equal to create+scheduleToRun. You do not need to kickoff the task  
-		- The method `create_task` takes a coroutine object as a parameter and returns a `Task` object, which inherits from `asyncio.Future`. The call creates the task inside the event loop for the current thread, and starts the task executing at the beginning of the coroutine’s code-block. The returned future will be marked as `done()` only when the task has finished execution. As you might expect the return value of the coroutine’s code block is the `result()` which will be stored in the future object when it is finished (and if it raises then the exception will be caught and stored in the future).  
-		- Example:  
-		    
+		- Tasks are used to run/schedule coroutines in event loops. If a coroutine awaits on a ((6512ae22-02c0-42c1-bb30-97094aae783d)) , the Task suspends the execution of the coroutine and waits for the completion of the Future. When the Future is /done/, the execution of the wrapped coroutine resumes.
+		- If a coroutine awaits on a Future, the Task suspends the execution of the coroutine and waits for the completion of the Future. When the Future is *done*, the execution of the wrapped coroutine resumes.
+		- Event loops use cooperative scheduling: an event loop runs one Task at a time. While a Task awaits for the completion of a Future, the event loop runs other Tasks, callbacks, or performs IO operations.
+		- Use the high-level [[https://docs.python.org/3/library/asyncio-task.html#asyncio.create_task][]] function to create Tasks, or the low-level [[https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_task][]] or [[https://docs.python.org/3/library/asyncio-future.html#asyncio.ensure_future][]] functions. Manual instantiation of Tasks is discouraged. `create_task` is equal to create+scheduleToRun. You do not need to kickoff the task
+		- The method `create_task` takes a coroutine object as a parameter and returns a `Task` object, which inherits from `asyncio.Future`. The call creates the task inside the event loop for the current thread, and starts the task executing at the beginning of the coroutine’s code-block. The returned future will be marked as `done()` only when the task has finished execution. As you might expect the return value of the coroutine’s code block is the `result()` which will be stored in the future object when it is finished (and if it raises then the exception will be caught and stored in the future).
+		- Example:
+
 		  ``` python
 		  import asyncio
 
@@ -189,12 +188,12 @@ def: asyncio.Queue(maxsize=0)
 
 		  asyncio.run(main())
 		  ```
-		- Video resource {{video(https://www.bilibili.com/video/BV1NA411g7yf?p=7&vd_source=3beef1bd86c86cf14f277319e599dab9)}}  
-	- Async Queue  
-	- Asynchronous Iterators  
-		- ((65137d16-a06a-40e4-b28e-5fa4474017d5))  
-		- Sample  
-		    
+		- Video resource {{video(https://www.bilibili.com/video/BV1NA411g7yf?p=7&vd_source=3beef1bd86c86cf14f277319e599dab9)}}
+	- Async Queue
+	- Asynchronous Iterators
+		- ((65137d16-a06a-40e4-b28e-5fa4474017d5))
+		- Sample
+
 		  ``` python
 		  class Ticker:
 		      """Yield numbers from 0 to `to` every `delay` seconds."""
@@ -220,10 +219,10 @@ def: asyncio.Queue(maxsize=0)
 		          yield i
 		          await asyncio.sleep(delay)
 		  ```
-	- Asynchronous contex manager  
-		- async ctx mgr provide a context manager that can be suspended when entering and exiting. This is achieved by using `async with`. It is same way as `with` been used in other python expressions (e.g. file open)  
-		- How to use  
-		    
+	- Asynchronous contex manager
+		- async ctx mgr provide a context manager that can be suspended when entering and exiting. This is achieved by using `async with`. It is same way as `with` been used in other python expressions (e.g. file open)
+		- How to use
+
 		  ``` python
 		  # create and use an asynchronous context manager
 		  async with AsyncContextManager() as manager:
@@ -237,11 +236,11 @@ def: asyncio.Queue(maxsize=0)
 		  	# close or exit the context manager
 		  	await manager.close()
 		  ```
-		- It must be used inside a coroutine `async def`  
-	- uvloop  
-		- uvloop [GitHub - MagicStack/uvloop: Ultra fast asyncio event loop.](https://github.com/magicstack/uvloop) is 2~3 times faster than asyncio  
-		- Using uvloop  
-		    
+		- It must be used inside a coroutine `async def`
+	- uvloop
+		- uvloop [GitHub - MagicStack/uvloop: Ultra fast asyncio event loop.](https://github.com/magicstack/uvloop) is 2~3 times faster than asyncio
+		- Using uvloop
+
 		  ``` python
 		  import asyncio
 		  import sys
@@ -259,10 +258,10 @@ def: asyncio.Queue(maxsize=0)
 		      uvloop.install()
 		      asyncio.run(main())
 		  ```
-		- It used by asgi uvicorn  
-	- Practical examples  
-		- redis  
-		    
+		- It used by asgi uvicorn
+	- Practical examples
+		- redis
+
 		  ``` python
 		  import redis.asyncio as redis
 
@@ -311,8 +310,8 @@ def: asyncio.Queue(maxsize=0)
 		      loop = asyncio.get_event_loop()
 		      loop.run_until_complete(example())
 		  ```
-		- Mysql with aiomysql  
-		    
+		- Mysql with aiomysql
+
 		  ``` python
 		  import asyncio
 		  import sqlalchemy as sa
@@ -338,16 +337,16 @@ def: asyncio.Queue(maxsize=0)
 		  loop = asyncio.get_event_loop()
 		  loop.run_until_complete(go(loop))
 		  ```
--  
--  
--  
--  
--  
--  
-- References  
-	- [协程到底是咋回事？asyncio大佬给你彻底讲明白。](https://www.bilibili.com/video/BV11T4y117Jo)  
-	- [Python Asyncio Part 2 – Awaitables, Tasks, and Futures | cloudfit-public-docs](https://bbc.github.io/cloudfit-public-docs/asyncio/asyncio-part-2.html)  
-	- [Python Asyncio Part 3 – Asynchronous Context Managers and Asynchronous Iterators | cloudfit-public-docs](https://bbc.github.io/cloudfit-public-docs/asyncio/asyncio-part-3)  
-	- [Async IO in Python: A Complete Walkthrough – Real Python](https://realpython.com/async-io-python/)  
--  
--  
+-
+-
+-
+-
+-
+-
+- References
+	- [协程到底是咋回事？asyncio大佬给你彻底讲明白。](https://www.bilibili.com/video/BV11T4y117Jo)
+	- [Python Asyncio Part 2 – Awaitables, Tasks, and Futures | cloudfit-public-docs](https://bbc.github.io/cloudfit-public-docs/asyncio/asyncio-part-2.html)
+	- [Python Asyncio Part 3 – Asynchronous Context Managers and Asynchronous Iterators | cloudfit-public-docs](https://bbc.github.io/cloudfit-public-docs/asyncio/asyncio-part-3)
+	- [Async IO in Python: A Complete Walkthrough – Real Python](https://realpython.com/async-io-python/)
+-
+-
