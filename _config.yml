@@ -42,7 +42,7 @@ anchorjs: true # if you want to customize anchor. check out line:181 of `post.ht
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate, jekyll-org]
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -104,3 +104,6 @@ friends: [
     #     href: "http://su.gallery/"
     # }
 ]
+
+org:
+  liquid: true

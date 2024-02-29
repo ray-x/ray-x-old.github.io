@@ -15,10 +15,8 @@ language: python
   tags:: rest, DRF, python, django, web, API
   date:: [[Sep 25th, 2023]]
   tutor:: 武沛齐
-  collapsed:: true
 - Resources  
   heading:: 2
-  collapsed:: true
 	- [银角大王-武沛齐Django-Drf框架与django3项目搭建案例全套教学 完整版](https://www.bilibili.com/video/BV1Sc41157hr)
 	- [银角大王-武沛齐Django-Drf框架与vue项目搭建案例全套教学  完整版](https://www.bilibili.com/video/BV1pA41117U4)
 	- [全站最牛逼的DRF（Django-restframework），没有之一！](https://www.bilibili.com/video/BV1XR4y157rk)
@@ -26,13 +24,11 @@ language: python
 	- [黑马 Django REST Framework框架经典教程](https://www.bilibili.com/video/BV1Sz4y1o7E8)
 - Jump start  
   heading:: 2
-  collapsed:: true
 	- install  
 	  heading:: 3
 		- [Home - Django REST framework  install](https://www.django-rest-framework.org/#installation)
 	- usage  
 	  heading:: 3
-	  collapsed:: true
 		- [Quickstart - Django REST framework](https://www.django-rest-framework.org/tutorial/quickstart)
 		- settings:  
 		    
@@ -102,7 +98,6 @@ language: python
 - APIView  
   heading:: 2
   desc:: REST framework provides an ~APIView~ class, which subclasses Django's ~View~ class.
-  collapsed:: true
 	- APIView <- django.views.View and it implemented `as_view()`
 		- APIView has `csrf_exempt`. It implemented `as_view` and `dispatch`
 		- Requests passed to the handler methods will be REST framework's `Request` instances, not Django's `HttpRequest` instances.
@@ -113,7 +108,6 @@ language: python
 - Requests  
   heading:: 2
   desc:: REST framework's ~Request~ class extends the standard ~HttpRequest~,  adding support for REST framework's flexible request parsing and request authentication.
-  collapsed:: true
 	- [Requests - Django REST framework](https://www.django-rest-framework.org/api-guide/requests/)  
 	  heading:: 3
 	- DRF extend django HttpRequests by adding  
@@ -139,7 +133,6 @@ language: python
 	  heading:: 3
 	- SimpleAuth  
 	  heading:: 3
-	  collapsed:: true
 	  ``` python
 	  # auth.py
 	  class SimpleAuth(BaseAuthentication):
@@ -160,7 +153,6 @@ language: python
 	  ```
 	- Apply Authentication Globally  
 	  heading:: 3
-	  collapsed:: true
 		- in Settings.py  
 		    
 		  ``` python
@@ -172,12 +164,10 @@ language: python
 			- First get Auth from setting.py and in each view read `authentication_class`. The 2nd will override global setting if it is not `None` set 2^{ nd} to `[]` will disable global setting and disable Auth
 	- Multi Authenticators  
 	  heading:: 4
-	  collapsed:: true
 		- If `authenticate()` returns `None` when failed, DRF will go to next Authenticator until the return value is not None.
 		- If all returns None. then `self.auth == None `
 		- If you want to prevent `None` go through, put an authenticator that will raise fail at end of list
 		- Verify token in Authentication middleware  
-		  collapsed:: true
 		    
 		  ``` python
 		  class QueryTokenAuth(BaseAuthentication):
@@ -208,7 +198,6 @@ language: python
 		- Auth success when `any()` of authenticator return `user, auth`
 	- Login, Register and token issuing  
 	  heading:: 3
-	  collapsed:: true
 		- [Login and Register User — Django Rest Framework | by Emre Cevik | Python | Django & Rest | Medium](https://medium.com/django-rest/django-rest-framework-login-and-register-user-fd91cf6029d5)
 		- Login url  
 		    
@@ -240,11 +229,9 @@ language: python
   heading:: 2
   desc:: Together with [authentication](https://www.django-rest-framework.org/api-guide/authentication/) and [throttling](https://www.django-rest-framework.org/api-guide/throttling/), permissions determine whether a request should be granted or denied access.
   url:: [DRF: Permission](https://www.django-rest-framework.org/api-guide/permissions/)
-  collapsed:: true
 	- Permissions are used to grant or deny access for different classes of users to different parts of the API.
 	- The simplest style of permission would be to allow access to any authenticated user, and deny access to any unauthenticated user. This corresponds to the `IsAuthenticated` class in REST framework.
 	- Sample permission class  
-	  collapsed:: true
 	    
 	  ``` python
 	  from rest_framework import permissions
@@ -286,7 +273,6 @@ language: python
 	  ```
 	- One difference between ((65136fb1-b3fd-40b2-b22b-d8ea5e0908b9)) is if a list of Per-Class is add. **ALL** Permission check need success/True. It is **AND** operation
 	- Add permission check in view  
-	  collapsed:: true
 	    
 	  ``` python
 	  class OrderView(APIView):
@@ -297,7 +283,6 @@ language: python
 - Throttling  
   heading:: 2
   desc:: Throttling is similar to [permissions](https://www.django-rest-framework.org/api-guide/permissions/), in that it determines if a request should be authorized. Throttles indicate a temporary state, and are used to control the rate of requests that clients can make to an API.
-  collapsed:: true
 	- As with permissions, multiple throttles may be used. Your API might have a restrictive throttle for unauthenticated requests, and a less restrictive throttle for authenticated requests.
 	- Another scenario where you might want to use multiple throttles would be if you need to impose different constraints on different parts of the API, due to some services being particularly resource-intensive.
 	- Settings  
@@ -332,7 +317,6 @@ language: python
 	      return Response(content)
 	  ```
 	- Define a throttle Class  
-	  collapsed:: true
 		- In most case throttle class in django is good enough for 99% of the user cases. But in case you need to define a throttle of your own, here is two examples:  
 		  ``` python
 		  class RandomRateThrottle(throttling.BaseThrottle):
@@ -375,7 +359,6 @@ language: python
 - Versioning  
   heading:: 2
   desc:: Versioning allows you to alter behavior between different clients. DRF provides for a number of different versioning schemes.
-  collapsed:: true
 	- Config API version  
 	  heading:: 3
 		- [[../assets/image-20210819154455680_1696666609261_0.png]]
@@ -395,7 +378,6 @@ language: python
 		-
 	- Version schema  
 	  heading:: 3
-	  collapsed:: true
 		- [AcceptHeaderVersioning](https://www.django-rest-framework.org/api-guide/versioning/#acceptheaderversioning)  
 		  heading:: 3
 		    
@@ -456,7 +438,6 @@ language: python
 - Request parsing  
   heading:: 2
   desc:: REST framework includes a number of built in Parser classes, that allow you to accept requests with various media types. There is also support for defining your own custom parsers
-  collapsed:: true
 	- Jsonparser  
 	  [[../assets/image-20210827081058194_1696668405368_0.jpg]]
 	- File parser (MultiPartParser)
@@ -469,7 +450,6 @@ language: python
   heading:: 2
   desc:: Content negotiation is the process of selecting one of multiple possible representations to return to a client, based on client or server preferences.
   url:: [Content negotiation - Django REST framework](https://www.django-rest-framework.org/api-guide/content-negotiation/)
-  collapsed:: true
 	- The client need specify `content-type`and the value should be valid http `media type`
 	- the config is through `parser_classes` and `content_negotiation_class`  
 	  Global setting  
@@ -491,7 +471,6 @@ language: python
 	  heading:: 3
 		- In a sense, Serializers is similar to ((651cfa1b-ce5c-486b-8f45-5f3cee8f113e))
 		- Create a serializer for `Comment`  
-		  collapsed:: true
 		    
 		  ``` python
 		  from datetime import datetime
@@ -588,7 +567,6 @@ language: python
 		  ```
 		- nested and embed  
 		  heading:: 4
-		  collapsed:: true
 			- Suppose there are multiple tables with 1:1 or m:n relations  
 			    
 			  ``` python
@@ -607,7 +585,6 @@ language: python
 			      tags = models.ManyToManyField(verbose_name="标签", to="Tag")
 			  ```
 			- You can create a new ModelSerializer  
-			  collapsed:: true
 			    
 			  ``` python
 			  from rest_framework.views import APIView
@@ -643,7 +620,6 @@ language: python
 			  ```
 		- Inheritances  
 		  heading:: 4
-		  collapsed:: true
 		  ``` python
 		  from rest_framework.views import APIView
 		  from rest_framework.response import Response
@@ -676,7 +652,6 @@ language: python
 		  heading:: 4
 		- save()/ update() method  
 		  heading:: 4
-		  collapsed:: true
 		  ``` python
 		  serializer = CommentModelSerializer(data=data)
 		  serializer.save()
@@ -687,13 +662,11 @@ language: python
 		  ```
 		- In save(), you can add additional fields  
 		  heading:: 4
-		  collapsed:: true
 		  ``` python
 		  serializer.save(updated = datetime.now(), updated_by = request.user )
 		  ```
 		- Foreign key and many to many  
 		  heading:: 4
-		  collapsed:: true
 			- When validate/save foriegn key, DRF will check if the key is valid or not
 			- It also apply when M2N is passed e.g. {'tags': [1, 1111]}, if `1111` not existed in M2N table, validation will fail
 		- Override `to_presentation`

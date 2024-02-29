@@ -1,5 +1,4 @@
 - Promise  
-  collapsed:: true
 	- The **~Promise~** object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A **~Promise~** is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a /promise/ to supply the value at some point in the future.  
 	  ``` javascript
 	  let promise = new Promise(function(resolve, reject) {
@@ -168,7 +167,6 @@
 		  ```
 		  You don't have to add a finally() block (indeed we haven't in the lectures).
 - Async/await  
-  collapsed:: true
 	- special syntax to work with promises in a more comfortable fashion.
 	- Async
 		- `async` ensures that the function returns a promise, and wraps non-promises in  
@@ -181,7 +179,6 @@
 		  f().then(alert); // 1
 		  ```
 	- Await  
-	  collapsed:: true
 		- The keyword ~await~ makes JavaScript wait until that promise settles and returns its result. `await`只能放在~async~函数里面，如果不放在里面，代码会直接报错，不能运行。它会暂停代码在该行上，直到 promise 完成，然后返回结果值。在暂停的同时，其他正在等待执行的代码就有机会执行了。这个行为不会耗费任何 CPU 资源，因为 JavaScript 引擎可以同时处理其他任务：执行其他脚本，处理事件等。  
 		  ``` javascript
 		  async function hello() {
@@ -293,7 +290,6 @@
 		  
 		  ```
 	- AsyncGenerator  
-	  collapsed:: true
 		- The **AsyncGenerator** object is returned by an [async generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function*) and it conforms to both the [async iterable protocol and the async iterator protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols).
 		- Async generator methods always yield [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise][]] objects.
 		- `AsyncGenerator` is a subclass of the hidden [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator][]] class.

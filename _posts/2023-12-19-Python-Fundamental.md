@@ -19,16 +19,13 @@ tags:
 	  
 	  ```
 - Sort/Heap  [Sorting HOW TO](https://docs.python.org/3/howto/sorting.html)  
-  collapsed:: true
 	- Note: sorted() will return a sorted list, it not change the original one  
 	  while list.sort() will change the original list
 - Key Func:  
-  collapsed:: true
 	- a func to be called on each list elem, e.g. key=str.lower
 	- it can be a lambda, e.g. key = lambda student: student.first_ name
 	- The Key Functions are used in {{embed(((64a3827c-147d-443e-bb06-6b0e9f3ef2e0)))}}
 - operator  `**from** **operator** **import** itemgetter, attrgetter`  
-  collapsed:: true
 	- 2nd and then 3rd element in tuple/list:   `sorted(student_{ tuples,} key=itemgetter(2, 3))`  
 	  * sort based on class attribute:  `  sorted(student_{ objects,} key=attrgetter('grade', 'age')) `
 	  * Note: itemgetter for list/tuple and  attrgetter is for class
@@ -54,7 +51,6 @@ tags:
   term:: An iterator is a Python object that implements a specific interface. ~iter___~ return instance of iterator and __next()__ method steps the iterator on cycle and return a value to next object
   id:: 65137d16-a06a-40e4-b28e-5fa4474017d5
 - **functools: cache**  
-  collapsed:: true
 	- @functools.**cache**(*user_ function*)
 	- python  
 	  ``` python
@@ -66,7 +62,6 @@ tags:
 	  
 	  ```
 - **list comprehension**  
-  collapsed:: true
 	- [When to Use a List Comprehension in Python – Real Python](https://realpython.com/list-comprehension-python/)
 	- baisic
 		- python  
@@ -98,7 +93,6 @@ tags:
 		  ```
 - Map, Filter, Reduce and Zip  
   id:: 6506c411-3211-4b0c-9647-637d211344b3
-  collapsed:: true
 	- [Map, Filter, Reduce - Learn Python - Free Interactive Python Tutorial](https://www.learnpython.org/en/Map%2C_Filter%2C_Reduce)
 		- Map and Filter return iterator (not list)  
 		  <a id="map">Map</a>
@@ -122,7 +116,6 @@ tags:
 			  
 			  ```
 		- **reduce(func, iterable[, initial])**  
-		  collapsed:: true
 			- python  
 			  ``` python
 			  from functools import reduce
@@ -156,7 +149,6 @@ tags:
 				  `[x * y for x, y in zip([1, 2, 3], [3, 4, 5])]`
 			-
 - Heap #heapq  
-  collapsed:: true
 	- Operations:
 		- peek: there are **no peek**, use heap[0] instead
 		- heappush
@@ -175,7 +167,6 @@ tags:
 		- merge: merge multiple sorted input into a single sorted. It return a iterable(not al ist)
 		- **nlargest** & **nsmallest**:  return list of n largest/smallest elements, Equivalent to: `sorted(iterable, key=key, reverse=True/False)[:n]`
 - Counter  
-  collapsed:: true
 	- [Python's Counter: The Pythonic Way to Count Objects – Real Python](https://realpython.com/python-counter/)
 	- counter.update(): the implementation provided by **Counter** adds existing counts together. It also creates new key-count pairs when necessary.
 		- python  
@@ -220,7 +211,6 @@ tags:
 	  
 	  ```
 - Const/Final  
-  collapsed:: true
 	- python  
 	  ``` python
 	  from typing import Final 
@@ -229,7 +219,6 @@ tags:
 	  
 	  ```
 - [[Comments]]  
-  collapsed:: true
 	- [[Sep 21st, 2023]]
 		- ((650c181a-1ea2-475c-a09b-35a4aa6ecd39))
 			-
