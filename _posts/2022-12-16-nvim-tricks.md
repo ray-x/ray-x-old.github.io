@@ -1,4 +1,13 @@
-Some tricks
+---
+layout: post
+title: "nvim trick"
+author: "Ray"
+header-style: text
+tags:
+  - nvim
+---
+
+Some Neovim tricks
 
 # [*nvim*]{.spurious-link target="nvim"} [*keymap*]{.spurious-link target="keymap"}
 

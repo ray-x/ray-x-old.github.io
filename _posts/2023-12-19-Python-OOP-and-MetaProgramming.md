@@ -1,4 +1,6 @@
 ---
+layout: post
+title: "Python OOP and MetaProgramming"
 tags:
   - python
   - generator

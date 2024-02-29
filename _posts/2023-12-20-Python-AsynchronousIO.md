@@ -1,4 +1,6 @@
 ---
+layout: post
+title: "asyncio python"
 alias: asyncio
 tags:
   - python

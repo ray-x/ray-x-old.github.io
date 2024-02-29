@@ -1,4 +1,6 @@
 ---
+layout: post
+title: "python basic"
 institute: udemy
 language: python
 type: programming

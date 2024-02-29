@@ -8,7 +8,6 @@ tags:
     - backend
     - python
     - DRF
-
 ---
 
 # Login, session and cookie

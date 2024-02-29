@@ -6,7 +6,6 @@ author: "Ray"
 header-style: text
 tags:
   - Docker
-
 ---
 
 Quote from docker.com

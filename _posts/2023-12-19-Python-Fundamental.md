@@ -1,8 +1,9 @@
 ---
-type: programming
+layout: post
+title: "Python Fundamental"
+alias: DRF
 tags:
-  - leetcode
-  - DSA
+  - python
 ---
 
 - Fundamental of Python, a Jump start

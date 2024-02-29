@@ -1,3 +1,12 @@
+---
+layout: post
+title: "dynamo and lock"
+author: "Ray"
+header-style: text
+tags:
+  - dynamo
+
+---
 * Lock
 ** Optimistic Locking
 *** With Optimistic Locking, there is always one attribute in your DynamoDB table that will act as a "/version number./" It can be a nano-id, an integer, or a timestamp. The version number associated with the record must also be sent when clients request data.

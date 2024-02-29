@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Python Django deployment"
+tags:
+  - python
+  - django
+---
+
 - Normally there are following way to deploy python service
 	- ECS/EKS
 	- EC2

@@ -1,4 +1,6 @@
 ---
+layout: post
+title: "Docker storage"
 tags:
   - python
   - generator
