@@ -104,6 +104,3 @@ friends: [
     #     href: "http://su.gallery/"
     # }
 ]
-
-org:
-  liquid: true
