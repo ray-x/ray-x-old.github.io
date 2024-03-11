@@ -1,10 +1,10 @@
 site_name: Ray-X
 site_author: Ray-X
 copyright: "Copyright &copy; 2019 - 2024 RayX"
-site_url: https://rayx.me
+site_url: https://ray-x.github.io
 site_description: >-
   关于软件、Geek | Ray，Web & Mobile Lover，Software Engineer | 这里是 @Ray睿 类喵星人的个人博客。专注求索，创新
-repo_url: https://github.com/ray-x
+repo_url: https://github.com/ray-x.github.io
 repo_name: ray-x
 nav:
   - Home: index.md
